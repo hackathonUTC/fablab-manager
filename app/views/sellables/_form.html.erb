@@ -11,47 +11,47 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :unit %><br>
-    <%= f.text_field :unit %>
+    <%= f.text_field :unit, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :stock %><br>
-    <%= f.number_field :stock %>
+    <%= f.number_field :stock, class: 'form-control' %>
   </div>
 
     <%= f.fields_for :price, validate: true do |price_form| %>
-        <div class="field">
+        <div class="form-group">
           <%= price_form.label :innovation_center %><br>
-          <%= price_form.text_field :innovation_center %>
+          <%= price_form.text_field :innovation_center, class: 'form-control' %>
         </div>
-        <div class="field">
+        <div class="form-group">
           <%= price_form.label :permanencier %><br>
-          <%= price_form.text_field :permanencier %>
+          <%= price_form.text_field :permanencier, class: 'form-control' %>
         </div>
-        <div class="field">
+        <div class="form-group">
           <%= price_form.label :non_commercial %><br>
-          <%= price_form.text_field :non_commercial %>
+          <%= price_form.text_field :non_commercial, class: 'form-control' %>
         </div>
-        <div class="field">
+        <div class="form-group">
           <%= price_form.label :commercial %><br>
-          <%= price_form.text_field :commercial %>
+          <%= price_form.text_field :commercial, class: 'form-control' %>
         </div>
 
     <% end %>
 
     <%= f.fields_for :sellable_type do |sellable_type_form| %>
-    <div class="field">
+    <div class="form-group">
       <%= sellable_type_form.label :sellable_type_id %><br>
-      <%= sellable_type_form.autocomplete_field :name, autocomplete_sellable_type_name_sellables_path %>
+      <%= sellable_type_form.autocomplete_field :name, autocomplete_sellable_type_name_sellables_path, class: 'form-control' %>
     </div>
     <% end %>
 

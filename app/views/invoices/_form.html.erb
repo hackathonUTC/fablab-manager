@@ -12,15 +12,17 @@
     <% end %>
 
     <%= f.fields_for :orders do |order_form| %>
-        <%= order_form.label :quantity %>
-        <%= order_form.text_field :quantity %>
+        <div class="form-inline">
+          <%= order_form.label :quantity %>
+          <%= order_form.text_field :quantity, class: 'form-control' %>
 
-        <%= order_form.label :discount %>
-        <%= order_form.text_field :discount %>
+          <%= order_form.label :discount %>
+          <%= order_form.text_field :discount, class: 'form-control' %>
 
-        <%= order_form.label :sellable_id %>
-        <%= order_form.text_field :sellable_id %>
-        <%= order_form.link_to_remove "Remove this task" %>
+          <%= order_form.label :sellable_id %>
+          <%= order_form.text_field :sellable_id, class: 'form-control' %>
+          <%= order_form.link_to_remove "Remove this task" %>
+        </div>
     <% end %>
     <p><%= f.link_to_add "Add an order", :orders %></p>
 
