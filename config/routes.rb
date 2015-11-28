@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root 'sellables#index'
+  root 'home#show'
   resources :sellable_types
   resources :sellables do
     get :autocomplete_sellable_type_name, :on => :collection
