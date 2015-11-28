@@ -1,6 +1,8 @@
 class SellablesController < ApplicationController
   before_action :set_sellable, only: [:show, :edit, :update, :destroy]
 
+  autocomplete :sellable_type, :name
+
   # GET /sellables
   # GET /sellables.json
   def index
@@ -24,7 +26,6 @@ class SellablesController < ApplicationController
   # POST /sellables
   # POST /sellables.json
   def create
-  byebug
     sellable_info = sellable_params.except(:price)
     price_info = sellable_params[:price]
 

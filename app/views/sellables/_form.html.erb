@@ -48,11 +48,14 @@
 
     <% end %>
 
+    <%= f.fields_for :sellable_type do |sellable_type_form| %>
+    <div class="field">
+      <%= sellable_type_form.label :sellable_type_id %><br>
+      <%= sellable_type_form.autocomplete_field :name, autocomplete_sellable_type_name_sellables_path %>
+    </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :sellable_type_id %><br>
-    <%= f.text_field :sellable_type_id %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

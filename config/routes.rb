@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'sellables#index'
   resources :sellable_types
-  resources :sellables
+  resources :sellables do
+    get :autocomplete_sellable_type_name, :on => :collection
+  end
   resources :invoices
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
