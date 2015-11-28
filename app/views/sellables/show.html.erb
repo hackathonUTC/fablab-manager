@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @sellable.unit %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sellable.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sellable.description %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @sellable.stock %>
+</p>
+
+<p>
+  <strong>Price per unit ci:</strong>
+  <%= @sellable.price_per_unit_CI %>
+</p>
+
+<p>
+  <strong>Price per unit permanencier:</strong>
+  <%= @sellable.price_per_unit_permanencier %>
+</p>
+
+<p>
+  <strong>Price per unit nc:</strong>
+  <%= @sellable.price_per_unit_nc %>
+</p>
+
+<p>
+  <strong>Price per unit c:</strong>
+  <%= @sellable.price_per_unit_c %>
+</p>
+
+<p>
+  <strong>Sellable type:</strong>
+  <%= @sellable.sellable_type %>
+</p>
+
+<%= link_to 'Edit', edit_sellable_path(@sellable) %> |
+<%= link_to 'Back', sellables_path %>

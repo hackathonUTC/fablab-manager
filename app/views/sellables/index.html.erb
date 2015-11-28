@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sellables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Unit</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Stock</th>
+      <th>Price per unit ci</th>
+      <th>Price per unit permanencier</th>
+      <th>Price per unit nc</th>
+      <th>Price per unit c</th>
+      <th>Sellable type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sellables.each do |sellable| %>
+      <tr>
+        <td><%= sellable.unit %></td>
+        <td><%= sellable.name %></td>
+        <td><%= sellable.description %></td>
+        <td><%= sellable.stock %></td>
+        <td><%= sellable.price_per_unit_CI %></td>
+        <td><%= sellable.price_per_unit_permanencier %></td>
+        <td><%= sellable.price_per_unit_nc %></td>
+        <td><%= sellable.price_per_unit_c %></td>
+        <td><%= sellable.sellable_type %></td>
+        <td><%= link_to 'Show', sellable %></td>
+        <td><%= link_to 'Edit', edit_sellable_path(sellable) %></td>
+        <td><%= link_to 'Destroy', sellable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sellable', new_sellable_path %>

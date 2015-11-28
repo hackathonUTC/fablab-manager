@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FablabManager</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+fjqkldfqsjlkm
+<h1>
+  Liens
+</h1>
+<%= link_to 'Factures', invoices_path %>
+<%= link_to 'Produits', sellables_path %>
+<%= link_to 'Types de produits', sellable_types_path %>
+
+<h1>Contenu</h1>
+
+<%= yield %>
+
+</body>
+</html>

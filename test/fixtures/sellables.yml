@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unit: MyString
+  name: MyString
+  description: MyString
+  stock: 1
+  price_per_unit_CI: 1.5
+  price_per_unit_permanencier: 1.5
+  price_per_unit_nc: 1.5
+  price_per_unit_c: 1.5
+  sellable_type_id: 
+
+two:
+  unit: MyString
+  name: MyString
+  description: MyString
+  stock: 1
+  price_per_unit_CI: 1.5
+  price_per_unit_permanencier: 1.5
+  price_per_unit_nc: 1.5
+  price_per_unit_c: 1.5
+  sellable_type_id: 
