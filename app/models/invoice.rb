@@ -12,10 +12,34 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :orders
   validates :orders, length: {minimum: 1}
 
-  def price
+  def price_innovation_center
     sum = 0
     self.orders.each do |o|
-        sum += o.price
+      sum += o.price_innovation_center
+    end
+    sum
+  end
+
+  def price_permanencier
+    sum = 0
+    self.orders.each do |o|
+      sum += o.price_permanencier
+    end
+    sum
+  end
+
+  def price_non_commercial
+    sum = 0
+    self.orders.each do |o|
+      sum += o.price_non_commercial
+    end
+    sum
+  end
+
+  def price_commercial
+    sum = 0
+    self.orders.each do |o|
+      sum += o.price_commercial
     end
     sum
   end
