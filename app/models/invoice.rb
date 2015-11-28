@@ -12,6 +12,12 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :orders
   validates :orders, length: {minimum: 1}
 
-
+  def price
+    sum = 0
+    self.orders.each do |o|
+        sum += o.price
+    end
+    sum
+  end
 
 end

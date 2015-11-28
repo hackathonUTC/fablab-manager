@@ -21,6 +21,6 @@ class Sellable < ActiveRecord::Base
   belongs_to :sellable_type
 
   def price
-    self.prices.last
+    self.prices.last.innovation_center
   end
 end
