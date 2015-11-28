@@ -7,6 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <a id="logo" href="index.html"><%= image_tag("logo_fancy.png", alt:"Homepage") %></a>
+  <div class="menu-icon menu-icon-cross">
+    <span></span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">L'Asso</a></li>
+      <li><a href="#">Présentation</a></li>
+      <li><a href="#">Devis</a></li>
+      <li><a href="#">Ventes</a></li>
+      <li><a href="#">Contact</a></li>
+      <li id="btn-connexion"><a href="#">Connexion</a></li>
+    </ul>
+  </nav>
+</header>
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <h1 class="text-center">Fablab Manager</h1>
