@@ -3,50 +3,50 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Unit:</strong>
+  <strong><%= Sellable.human_attribute_name :unit %>:</strong>
   <%= @sellable.unit %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Sellable.human_attribute_name :name %>:</strong>
   <%= @sellable.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= Sellable.human_attribute_name :description %>:</strong>
   <%= @sellable.description %>
 </p>
 
 <p>
-  <strong>Stock:</strong>
+  <strong><%= Sellable.human_attribute_name :stock %>:</strong>
   <%= @sellable.stock %>
 </p>
 <% unless @sellable.price.nil? %>
 <p>
-  <strong>Price per unit ci:</strong>
+  <strong><%= Price.human_attribute_name :innovation_center %>:</strong>
   <%= @sellable.price.innovation_center %>
 </p>
 
 <p>
-  <strong>Price per unit permanencier:</strong>
+  <strong><%= Price.human_attribute_name :permanencier %>:</strong>
   <%= @sellable.price.permanencier %>
 </p>
 
 <p>
-  <strong>Price per unit nc:</strong>
+  <strong><%= Price.human_attribute_name :non_commercial %>:</strong>
   <%= @sellable.price.non_commercial %>
 </p>
 
 <p>
-  <strong>Price per unit c:</strong>
+  <strong><%= Price.human_attribute_name :commercial %>:</strong>
   <%= @sellable.price.commercial %>
 </p>
 <% end %>
 <% unless @sellable.sellable_type.nil? %>
 <p>
-  <strong>Sellable type:</strong>
+  <strong><%= SellableType.model_name.human %>:</strong>
   <%= @sellable.sellable_type.name %>
 </p>
 <% end %>
-<%= link_to 'Edit', edit_sellable_path(@sellable) %> |
-<%= link_to 'Back', sellables_path %>
+<%= link_to 'Editer', edit_sellable_path(@sellable) %> |
+<%= link_to 'Retour', sellables_path %>

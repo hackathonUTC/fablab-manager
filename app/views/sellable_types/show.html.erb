@@ -3,9 +3,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= SellableType.human_attribute_name :name %>:</strong>
   <%= @sellable_type.name %>
 </p>
 
-<%= link_to 'Edit', edit_sellable_type_path(@sellable_type) %> |
-<%= link_to 'Back', sellable_types_path %>
+<%= link_to 'Editer', edit_sellable_type_path(@sellable_type) %> |
+<%= link_to 'Retour', sellable_types_path %>
