@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: prices
+#
+#  id                :integer          not null, primary key
+#  innovation_center :float
+#  permanencier      :float
+#  non_commercial    :float
+#  commercial        :float
+#  sellable_id       :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  innovation_center: 1.5
+  permanencier: 1.5
+  non_commercial: 1.5
+  commercial: 1.5
+
+two:
+  innovation_center: 1.5
+  permanencier: 1.5
+  non_commercial: 1.5
+  commercial: 1.5

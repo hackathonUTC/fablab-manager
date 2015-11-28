@@ -24,12 +24,25 @@ class SellablesController < ApplicationController
   # POST /sellables
   # POST /sellables.json
   def create
-    @sellable = Sellable.new(sellable_params)
+  byebug
+    sellable_info = sellable_params.except(:price)
+    price_info = sellable_params[:price]
+
+    @sellable = Sellable.new(sellable_info)
 
     respond_to do |format|
       if @sellable.save
-        format.html { redirect_to @sellable, notice: 'Sellable was successfully created.' }
-        format.json { render :show, status: :created, location: @sellable }
+        price_info[:sellable_id] = @sellable.id
+        @price = Price.new(price_info)
+        if @price.valid?
+          @price.save
+
+          format.html { redirect_to @sellable, notice: 'Sellable was successfully created.' }
+          format.json { render :show, status: :created, location: @sellable }
+        else
+          format.html { render :new }
+          format.json { render json: @price.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :new }
         format.json { render json: @sellable.errors, status: :unprocessable_entity }
@@ -40,10 +53,23 @@ class SellablesController < ApplicationController
   # PATCH/PUT /sellables/1
   # PATCH/PUT /sellables/1.json
   def update
+    sellable_info = sellable_params.except(:price)
+    price_info = sellable_params[:price]
+
     respond_to do |format|
-      if @sellable.update(sellable_params)
-        format.html { redirect_to @sellable, notice: 'Sellable was successfully updated.' }
-        format.json { render :show, status: :ok, location: @sellable }
+      if @sellable.update(sellable_info)
+        price_info[:sellable_id] = @sellable.id
+        @price = Price.new(price_info)
+        if @price.valid?
+          @price.save
+
+          format.html { redirect_to @sellable, notice: 'Sellable was successfully updated.' }
+          format.json { render :show, status: :ok, location: @sellable }
+        else
+          @sellable.destroy
+          format.html { render :edit }
+          format.json { render json: @price.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :edit }
         format.json { render json: @sellable.errors, status: :unprocessable_entity }
@@ -69,6 +95,6 @@ class SellablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sellable_params
-      params.require(:sellable).permit(:unit, :name, :description, :stock, :price_per_unit_CI, :price_per_unit_permanencier, :price_per_unit_nc, :price_per_unit_c, :sellable_type_id)
+      params.require(:sellable).permit(:unit, :name, :description, :stock, price: [:innovation_center, :permanencier, :non_commercial, :commercial])
     end
 end

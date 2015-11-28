@@ -1,4 +1,4 @@
-<%= form_for @sellable, validate: true do |f| %>
+<%= nested_form_for @sellable, validate: true do |f| %>
   <% if @sellable.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sellable.errors.count, "error") %> prohibited this sellable from being saved:</h2>
@@ -27,22 +27,28 @@
     <%= f.label :stock %><br>
     <%= f.number_field :stock %>
   </div>
-  <div class="field">
-    <%= f.label :price_per_unit_CI %><br>
-    <%= f.text_field :price_per_unit_CI %>
-  </div>
-  <div class="field">
-    <%= f.label :price_per_unit_permanencier %><br>
-    <%= f.text_field :price_per_unit_permanencier %>
-  </div>
-  <div class="field">
-    <%= f.label :price_per_unit_nc %><br>
-    <%= f.text_field :price_per_unit_nc %>
-  </div>
-  <div class="field">
-    <%= f.label :price_per_unit_c %><br>
-    <%= f.text_field :price_per_unit_c %>
-  </div>
+
+    <%= f.fields_for :price, validate: true do |price_form| %>
+        <div class="field">
+          <%= price_form.label :innovation_center %><br>
+          <%= price_form.text_field :innovation_center %>
+        </div>
+        <div class="field">
+          <%= price_form.label :permanencier %><br>
+          <%= price_form.text_field :permanencier %>
+        </div>
+        <div class="field">
+          <%= price_form.label :non_commercial %><br>
+          <%= price_form.text_field :non_commercial %>
+        </div>
+        <div class="field">
+          <%= price_form.label :commercial %><br>
+          <%= price_form.text_field :commercial %>
+        </div>
+
+    <% end %>
+
+
   <div class="field">
     <%= f.label :sellable_type_id %><br>
     <%= f.text_field :sellable_type_id %>

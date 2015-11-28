@@ -19,31 +19,32 @@
   <strong>Stock:</strong>
   <%= @sellable.stock %>
 </p>
-
+<% unless @sellable.price.nil? %>
 <p>
   <strong>Price per unit ci:</strong>
-  <%= @sellable.price_per_unit_CI %>
+  <%= @sellable.price.innovation_center %>
 </p>
 
 <p>
   <strong>Price per unit permanencier:</strong>
-  <%= @sellable.price_per_unit_permanencier %>
+  <%= @sellable.price.permanencier %>
 </p>
 
 <p>
   <strong>Price per unit nc:</strong>
-  <%= @sellable.price_per_unit_nc %>
+  <%= @sellable.price.non_commercial %>
 </p>
 
 <p>
   <strong>Price per unit c:</strong>
-  <%= @sellable.price_per_unit_c %>
+  <%= @sellable.price.commercial %>
 </p>
-
+<% end %>
+<% unless @sellable.sellable_type.nil? %>
 <p>
   <strong>Sellable type:</strong>
-  <%= @sellable.sellable_type %>
+  <%= @sellable.sellable_type.name %>
 </p>
-
+<% end %>
 <%= link_to 'Edit', edit_sellable_path(@sellable) %> |
 <%= link_to 'Back', sellables_path %>
