@@ -1,5 +1,6 @@
 class InvoicesController < ApplicationController
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_sellables, only: [:update, :edit, :create, :new]
 
   # GET /invoices
   # GET /invoices.json
@@ -65,6 +66,10 @@ class InvoicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_invoice
       @invoice = Invoice.find(params[:id])
+    end
+
+    def set_sellables
+      @sellables = Sellable.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

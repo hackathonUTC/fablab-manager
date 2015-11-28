@@ -22,7 +22,7 @@
               <%= order_form.text_field :discount, class: 'form-control' %>
 
               <%= order_form.label :sellable_id %>
-              <%= order_form.text_field :sellable_id, class: 'form-control' %>
+              <%= order_form.select :sellable_id, options_from_collection_for_select(@sellables, 'id', 'name'), class: 'form-control' %>
               <%= order_form.link_to_remove "Remove this task" %>
             </div>
         <% end %>
