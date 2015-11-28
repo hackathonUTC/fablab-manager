@@ -34,8 +34,6 @@ gem 'nested_form'
 
 gem 'rails-i18n', '~> 4.0.0'
 
-gem 'rails-jquery-autocomplete'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
