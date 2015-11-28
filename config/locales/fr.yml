@@ -13,7 +13,21 @@ fr:
       price:
         one: Prix
         other: Prix
+      sellable:
+        one: Produit
+        other: Produits
     attributes:
+      sellable:
+        unit: Unité
+        name: Nom
+        description: Description
+        stock: Stock
+      price:
+        innovation_center: Prix centre d'innovation
+        permanencier: Prix permanencier
+        non_commercial: Prix non commercial
+        commercial: Prix commercial
       order:
-        quantity: "Quantité"
-        discount: "Réduction"
+        quantity: Quantité
+        discount: Réduction
+        sellable_id: Produit

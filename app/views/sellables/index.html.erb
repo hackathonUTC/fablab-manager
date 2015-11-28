@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= SellableType.model_name.human(count: 2) %></h1>
+<h1><%= Sellable.model_name.human(count: 2) %></h1>
 
 <table class="table table-responsive">
   <thead>
     <tr>
-      <th>Unit</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Stock</th>
-      <th>Price per unit ci</th>
-      <th>Price per unit permanencier</th>
-      <th>Price per unit nc</th>
-      <th>Price per unit c</th>
-      <th>Sellable type</th>
+      <th><%= Sellable.human_attribute_name :unit %></th>
+      <th><%= Sellable.human_attribute_name :name %></th>
+      <th><%= Sellable.human_attribute_name :description %></th>
+      <th><%= Sellable.human_attribute_name :stock %></th>
+      <th><%= Price.human_attribute_name :innovation_center %></th>
+      <th><%= Price.human_attribute_name :permanencier %></th>
+      <th><%= Price.human_attribute_name :non_commercial %></th>
+      <th><%= Price.human_attribute_name :commercial %></th>
+      <th><%= SellableType.model_name.human %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
