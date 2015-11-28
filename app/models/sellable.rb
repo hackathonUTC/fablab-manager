@@ -21,6 +21,23 @@ class Sellable < ActiveRecord::Base
   belongs_to :sellable_type
 
   def price
-    self.prices.last.innovation_center
+    self.prices.last
   end
+
+  def price_innovation_center
+    self.price.innovation_center
+  end
+
+  def price_permanencier
+    self.price.permanencier
+  end
+
+  def price_non_commercial
+    self.price.non_commercial
+  end
+
+  def price_commercial
+    self.price.commercial
+  end
+
 end

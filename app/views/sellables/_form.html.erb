@@ -48,12 +48,10 @@
 
     <% end %>
 
-    <%= f.fields_for :sellable_type do |sellable_type_form| %>
     <div class="form-group">
-      <%= sellable_type_form.label :sellable_type_id %><br>
-      <%= sellable_type_form.autocomplete_field :name, autocomplete_sellable_type_name_sellables_path, class: 'form-control' %>
+      <%= f.label :sellable_type_id %><br>
+      <%= f.select :sellable_type_id, options_from_collection_for_select(@sellable_types, 'id', 'name'), class: 'form-control' %>
     </div>
-    <% end %>
 
 
   <div class="actions">

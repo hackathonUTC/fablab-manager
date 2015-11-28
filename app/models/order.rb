@@ -16,7 +16,7 @@ class Order < ActiveRecord::Base
   belongs_to :sellable
 
   def price
-    quantity * sellable.price
+    quantity * sellable.price_innovation_center
   end
 
 end

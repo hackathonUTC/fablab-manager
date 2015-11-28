@@ -1,5 +1,6 @@
 class SellablesController < ApplicationController
   before_action :set_sellable, only: [:show, :edit, :update, :destroy]
+  before_action :set_sellable_types, only: [:edit, :new, :create, :update]
 
   autocomplete :sellable_type, :name
 
@@ -26,6 +27,7 @@ class SellablesController < ApplicationController
   # POST /sellables
   # POST /sellables.json
   def create
+    byebug
     sellable_info = sellable_params.except(:price)
     price_info = sellable_params[:price]
 
@@ -94,8 +96,12 @@ class SellablesController < ApplicationController
       @sellable = Sellable.find(params[:id])
     end
 
+    def set_sellable_types
+      @sellable_types = SellableType.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def sellable_params
-      params.require(:sellable).permit(:unit, :name, :description, :stock, price: [:innovation_center, :permanencier, :non_commercial, :commercial])
+      params.require(:sellable).permit(:unit, :name, :description, :stock, :sellable_type_id, price: [:innovation_center, :permanencier, :non_commercial, :commercial])
     end
 end
