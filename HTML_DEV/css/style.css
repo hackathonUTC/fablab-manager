@@ -99,7 +99,7 @@ html {
           font-weight: 500; }
       html > body > #main > .white-box {
         background-color: #fff;
-        padding: 10px;
+        padding: 20px;
         margin-bottom: 20px;
         color: #636363; }
         html > body > #main > .white-box > h2 {
@@ -108,7 +108,8 @@ html {
         html > body > #main > .white-box > p {
           font-size: 16px;
           font-weight: 300;
-          display: inline-block; }
+          display: inline-block;
+          line-height: 1.4; }
         html > body > #main > .white-box > iframe {
           display: inline-block; }
 
