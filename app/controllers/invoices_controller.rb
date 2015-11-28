@@ -11,6 +11,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    redirect_to :action => "edit"
   end
 
   # GET /invoices/new

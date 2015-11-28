@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="col-md-2">
-        Montant :
+        Montant : <%= @invoice.price_innovation_center unless @invoice.orders.count == 0 %>
       </div>
     </div>
 
