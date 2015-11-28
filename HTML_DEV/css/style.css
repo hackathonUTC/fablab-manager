@@ -116,7 +116,14 @@ header {
         font-weight: 300;
         display: inline-block;
         line-height: 1.4; }
-      #main > .white-box > .post > iframe {
-        display: inline-block; }
+    #main > .white-box > p {
+      font-size: 16px;
+      font-weight: 300;
+      display: inline-block;
+      line-height: 1.4; }
+      #main > .white-box > p::first-line {
+        margin-left: 20px; }
+    #main > .white-box > iframe {
+      display: inline-block; }
 
 /*# sourceMappingURL=style.css.map */
