@@ -3,8 +3,8 @@
 # Table name: orders
 #
 #  id          :integer          not null, primary key
-#  quantite    :integer
-#  reduction   :float
+#  quantity    :integer
+#  discount    :float
 #  invoice_id  :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -14,11 +14,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  quantite: 1
-  reduction: 1.5
+  quantity: 1
+  discount: 1.5
   invoice_id: 
 
 two:
-  quantite: 1
-  reduction: 1.5
+  quantity: 1
+  discount: 1.5
   invoice_id: 

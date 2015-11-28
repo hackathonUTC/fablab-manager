@@ -12,11 +12,11 @@
     <% end %>
 
     <%= f.fields_for :orders do |order_form| %>
-        <%= order_form.label :quantite %>
-        <%= order_form.text_field :quantite %>
+        <%= order_form.label :quantity %>
+        <%= order_form.text_field :quantity %>
 
-        <%= order_form.label :reduction %>
-        <%= order_form.text_field :reduction %>
+        <%= order_form.label :discount %>
+        <%= order_form.text_field :discount %>
 
         <%= order_form.label :sellable_id %>
         <%= order_form.text_field :sellable_id %>
