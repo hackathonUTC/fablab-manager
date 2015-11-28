@@ -1,0 +1,13 @@
+fr:
+  activerecord:
+    models:
+      invoice:
+        one: Facture
+        other: Factures
+      order:
+        one: Commande
+        other: Commandes
+    attributes:
+      order:
+        quantity: "Quantité"
+        discount: "Réduction"
