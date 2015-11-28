@@ -27,6 +27,8 @@ gem 'rails_admin'
 
 gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
 
+gem 'annotate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
