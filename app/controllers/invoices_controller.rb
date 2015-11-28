@@ -25,7 +25,6 @@ class InvoicesController < ApplicationController
   # POST /invoices
   # POST /invoices.json
   def create
-    byebug
     @invoice = Invoice.new(invoice_params)
 
     respond_to do |format|
@@ -66,7 +65,7 @@ class InvoicesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_invoice
-      @invoice = Invoice.find(params[:id])
+      @invoice = Invoice.includes(:orders).find(params[:id])
     end
 
     def set_sellables
@@ -75,6 +74,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(orders_attributes: [:quantity, :discount, :sellable_id])
+      params.require(:invoice).permit(orders_attributes: [:id, :quantity, :discount, :sellable_id, :_destroy])
     end
 end

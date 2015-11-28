@@ -16,19 +16,19 @@ class Order < ActiveRecord::Base
   belongs_to :sellable
 
   def price_innovation_center
-    quantity * sellable.price_innovation_center
+    quantity * self.sellable.price_innovation_center
   end
 
   def price_permanencier
-    quantity * sellable.price_permanencier
+    quantity * self.sellable.price_permanencier
   end
 
   def price_non_commercial
-    quantity * sellable.price_non_commercial
+    quantity * self.sellable.price_non_commercial
   end
 
   def price_commercial
-    quantity * sellable.price_commercial
+    quantity * self.sellable.price_commercial
   end
 
 end
