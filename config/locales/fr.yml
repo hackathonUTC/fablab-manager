@@ -31,3 +31,5 @@ fr:
         quantity: Quantité
         discount: Réduction
         sellable_id: Produit
+      sellable_type:
+        name: Nom du type
