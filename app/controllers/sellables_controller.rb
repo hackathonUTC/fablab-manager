@@ -2,8 +2,6 @@ class SellablesController < ApplicationController
   before_action :set_sellable, only: [:show, :edit, :update, :destroy]
   before_action :set_sellable_types, only: [:edit, :new, :create, :update]
 
-  autocomplete :sellable_type, :name
-
   # GET /sellables
   # GET /sellables.json
   def index

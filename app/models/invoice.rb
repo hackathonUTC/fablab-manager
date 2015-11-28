@@ -8,8 +8,8 @@
 #
 
 class Invoice < ActiveRecord::Base
-  has_many :orders
-  accepts_nested_attributes_for :orders
+  has_many :orders, dependent: :destroy
+  accepts_nested_attributes_for :orders, :allow_destroy => true
   validates :orders, length: {minimum: 1}
 
   def price_innovation_center
