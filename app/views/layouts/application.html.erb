@@ -7,16 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>
-  Liens
-</h1>
-<%= link_to 'Factures', invoices_path %>
-<%= link_to 'Produits', sellables_path %>
-<%= link_to 'Types de produits', sellable_types_path %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h1 class="text-center">Fablab Manager</h1>
+    <div class="text-center">
+      <%= link_to 'Factures', invoices_path, class: 'btn btn-default' %>
+      <%= link_to 'Produits', sellables_path, class: 'btn btn-default' %>
+      <%= link_to 'Types de produits', sellable_types_path, class: 'btn btn-default' %>
+    </div>
 
-<h1>Contenu</h1>
+    <br>
+    <hline/>
 
-<%= yield %>
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

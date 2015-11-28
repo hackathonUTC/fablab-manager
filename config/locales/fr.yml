@@ -7,6 +7,12 @@ fr:
       order:
         one: Commande
         other: Commandes
+      sellable_type:
+        one: Type de produit
+        other: Type de produit
+      price:
+        one: Prix
+        other: Prix
     attributes:
       order:
         quantity: "Quantité"
