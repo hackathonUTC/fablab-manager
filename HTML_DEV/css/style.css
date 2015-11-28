@@ -1,0 +1,120 @@
+/* line 13, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box; }
+
+/* HTML5 display-role reset for older browsers */
+/* line 24, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 27, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/reset.scss */
+body {
+  line-height: 1; }
+
+/* line 30, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/reset.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 33, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/reset.scss */
+blockquote, q {
+  quotes: none; }
+
+/* line 37, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+/* line 41, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 9, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+html {
+  background-color: #eaebec; }
+  /* line 12, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+  html > body > header {
+    background-color: #ef9508;
+    width: 100%;
+    height: 55px;
+    position: relative; }
+    /* line 17, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+    html > body > header > #logo {
+      display: inline-block;
+      height: inherit; }
+      /* line 20, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+      html > body > header > #logo > img {
+        height: inherit;
+        width: auto;
+        margin-left: 10px; }
+    /* line 29, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+    html > body > header > nav > ul {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin-right: 10px; }
+      /* line 32, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+      html > body > header > nav > ul > li {
+        float: left;
+        line-height: 55px; }
+        /* line 35, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+        html > body > header > nav > ul > li > a {
+          color: white;
+          font-family: Lato;
+          font-weight: 300;
+          text-decoration: none;
+          padding: 0px 22px;
+          float: none;
+          display: block; }
+      /* line 45, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+      html > body > header > nav > ul > li:hover a:not(#btn_connexion) {
+        background-color: rgba(255, 255, 255, 0.3); }
+      /* line 48, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+      html > body > header > nav > ul > li#btn_connexion a {
+        border: 1px solid white;
+        border-radius: 3px;
+        display: initial;
+        padding: 4px 22px 6px; }
+      /* line 54, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+      html > body > header > nav > ul > li#btn_connexion {
+        margin-left: 5px; }
+  /* line 62, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+  html > body > #main {
+    margin-left: auto;
+    margin-left: right;
+    max-width: 900px;
+    margin-top: 20px; }
+    /* line 67, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+    html > body > #main > .slogan {
+      text-align: center;
+      font-family: 'Lato';
+      font-weight: 300;
+      font-size: 30px;
+      color: #565656; }
+      /* line 73, C:/Users/Louis/Desktop/Fab lab/fablab.utc.com/css/style.scss */
+      html > body > #main > .slogan > .accentuer {
+        font-style: italic;
+        font-weight: 500; }
+
+/*# sourceMappingURL=style.css.map */
