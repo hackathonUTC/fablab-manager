@@ -72,6 +72,10 @@ header {
 	margin-right: auto;
 	max-width: 900px;
 	margin-top: 50px;
+	.accentuer {
+		font-style: italic;
+		font-weight: 500;
+	}
 
 	> .slogan {
 		text-align: center;
@@ -79,12 +83,6 @@ header {
 		font-size: 30px;
 		color: #484848;
 		margin-bottom: 40px;
-
-
-		> .accentuer {
-			font-style: italic;
-			font-weight: 500;
-		}
 	}
 	> .white-box {
 		background-color: #fff;
@@ -92,10 +90,21 @@ header {
 		margin-bottom: 20px;
 		color: #636363;
 
-		> h2 {
+		h2 {
 			font-size: 22px;
 			margin-bottom: 20px;
+			color: $main-color;
 		}
+		> .post {
+			border: 1px #eaebec solid;
+			border-radius: 3px;
+			padding: 10px;
+			> p {
+				font-size: 16px;
+				font-weight: 300;
+				display: inline-block;
+				line-height: 1.4;
+			}
 
 		> p {
 			font-size: 16px;
