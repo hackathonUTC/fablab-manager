@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require rails.validations
+//= require jquery_nested_form
 //= require_tree .
 
 // You will need to require 'jquery-ui' for this to work

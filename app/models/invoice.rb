@@ -8,8 +8,10 @@
 #
 
 class Invoice < ActiveRecord::Base
+  has_many :orders
+  accepts_nested_attributes_for :orders
   validates :orders, length: {minimum: 1}
 
-  has_many :orders
+
 
 end
