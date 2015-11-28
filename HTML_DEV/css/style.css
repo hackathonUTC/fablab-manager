@@ -42,62 +42,74 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-body {
-  color: green; }
-
 html {
   background-color: #eaebec; }
-  html > body > header {
-    background-color: #ef9508;
-    width: 100%;
-    height: 55px;
-    position: relative; }
-    html > body > header > #logo {
-      display: inline-block;
-      height: inherit; }
-      html > body > header > #logo > img {
-        height: inherit;
-        width: auto;
-        margin-left: 10px; }
-    html > body > header > nav > ul {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      margin-right: 10px; }
-      html > body > header > nav > ul > li {
-        float: left;
-        line-height: 55px; }
-        html > body > header > nav > ul > li > a {
-          color: white;
-          font-family: Lato;
+  html > body {
+    font-family: Lato; }
+    html > body > header {
+      background-color: #ef9508;
+      width: 100%;
+      height: 55px;
+      position: relative; }
+      html > body > header > #logo {
+        display: inline-block;
+        height: inherit; }
+        html > body > header > #logo > img {
+          height: inherit;
+          width: auto;
+          margin-left: 10px; }
+      html > body > header > nav > ul {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin-right: 10px; }
+        html > body > header > nav > ul > li {
+          float: left;
+          line-height: 55px; }
+          html > body > header > nav > ul > li > a {
+            color: white;
+            font-weight: 300;
+            text-decoration: none;
+            padding: 0 22px;
+            float: none;
+            display: block; }
+        html > body > header > nav > ul > li:hover a:not(#btn_connexion) {
+          background-color: rgba(255, 255, 255, 0.3); }
+        html > body > header > nav > ul > #btn-connexion {
+          margin-left: 5px; }
+          html > body > header > nav > ul > #btn-connexion > a {
+            border: 1px solid white;
+            border-radius: 3px;
+            display: initial;
+            padding: 4px 22px 6px; }
+    html > body > #main {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 900px;
+      margin-top: 50px; }
+      html > body > #main > .slogan {
+        text-align: center;
+        font-weight: 300;
+        font-size: 30px;
+        color: #484848;
+        margin-bottom: 40px; }
+        html > body > #main > .slogan > .accentuer {
+          font-style: italic;
+          font-weight: 500; }
+      html > body > #main > .white-box {
+        background-color: #fff;
+        padding: 10px;
+        margin-bottom: 20px;
+        color: #636363; }
+        html > body > #main > .white-box > h2 {
+          font-size: 22px;
+          margin-bottom: 20px; }
+        html > body > #main > .white-box > p {
+          font-size: 16px;
           font-weight: 300;
-          text-decoration: none;
-          padding: 0px 22px;
-          float: none;
-          display: block; }
-      html > body > header > nav > ul > li:hover a:not(#btn_connexion) {
-        background-color: rgba(255, 255, 255, 0.3); }
-      html > body > header > nav > ul > li#btn_connexion a {
-        border: 1px solid white;
-        border-radius: 3px;
-        display: initial;
-        padding: 4px 22px 6px; }
-      html > body > header > nav > ul > li#btn_connexion {
-        margin-left: 5px; }
-  html > body > #main {
-    margin-left: auto;
-    margin-left: right;
-    max-width: 900px;
-    margin-top: 20px; }
-    html > body > #main > .slogan {
-      text-align: center;
-      font-family: 'Lato';
-      font-weight: 300;
-      font-size: 30px;
-      color: #565656; }
-      html > body > #main > .slogan > .accentuer {
-        font-style: italic;
-        font-weight: 500; }
+          display: inline-block; }
+        html > body > #main > .white-box > iframe {
+          display: inline-block; }
 
 /*# sourceMappingURL=style.css.map */
