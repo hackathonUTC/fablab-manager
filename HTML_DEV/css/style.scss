@@ -106,10 +106,7 @@ header {
 			font-weight: 300;
 			display: inline-block;
 			line-height: 1.4;
-
-			&::first-line {
-				margin-left: 20px
-			}
+			text-indent: 30px;
 		}
 
 		> iframe {
