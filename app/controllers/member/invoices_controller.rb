@@ -3,6 +3,8 @@ class Member::InvoicesController < Member::BaseController
   before_action :set_sellables, only: [:update, :edit, :create, :new]
   before_action :set_users, only: [:update, :edit, :create, :new]
 
+  skip_before_action :bouhou, only: [:edit]
+
 
   # GET /invoices
   # GET /invoices.json
