@@ -2,8 +2,10 @@ class Member::InvoicesController < Member::BaseController
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
   before_action :set_sellables, only: [:update, :edit, :create, :new]
   before_action :set_users, only: [:update, :edit, :create, :new]
+  before_action :set_price_types
+  before_action :set_price_type, only: [:update, :edit, :create, :new]
 
-  skip_before_action :bouhou, only: [:edit]
+  skip_before_action :bouhou, only: [:edit, :update]
 
 
   # GET /invoices
@@ -51,14 +53,18 @@ class Member::InvoicesController < Member::BaseController
   # PATCH/PUT /invoices/1
   # PATCH/PUT /invoices/1.json
   def update
-    respond_to do |format|
-      if @invoice.update(invoice_params)
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
-        format.json { render :show, status: :ok, location: @invoice }
-      else
-        format.html { render :edit }
-        format.json { render json: @invoice.errors, status: :unprocessable_entity }
+    if params[:price_type_id].nil?
+      respond_to do |format|
+        if @invoice.update(invoice_params)
+          format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
+          format.json { render :show, status: :ok, location: @invoice }
+        else
+          format.html { render :edit }
+          format.json { render json: @invoice.errors, status: :unprocessable_entity }
+        end
       end
+    else
+        redirect_to edit_invoice_path(@invoice, price_type_id: params[:price_type_id])
     end
   end
 
@@ -73,21 +79,33 @@ class Member::InvoicesController < Member::BaseController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_invoice
-      @invoice = Invoice.includes(:orders).find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_invoice
+    @invoice = Invoice.includes(:orders).find(params[:id])
+  end
 
-    def set_sellables
-      @sellables = Sellable.all
-    end
+  def set_sellables
+    @sellables = Sellable.all
+  end
 
-    def set_users
-      @users = User.all
-    end
+  def set_users
+    @users = User.all
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def invoice_params
-      params.require(:invoice).permit(:created_for, orders_attributes: [:id, :quantity, :discount, :sellable_id, :_destroy])
+  def set_price_types
+    @price_types = current_user.is_member? ? PriceType.all : PriceType.where('display = ?', true)
+  end
+
+  def set_price_type
+    if !params[:price_type_id].nil?
+      @price_type = @price_types.find_by_id(params[:price_type_id])
+    else
+      @price_type = @price_types.last
     end
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def invoice_params
+    params.require(:invoice).permit(:created_for, orders_attributes: [:id, :quantity, :discount, :sellable_id, :_destroy]) unless !current_user.is_member?
+  end
 end

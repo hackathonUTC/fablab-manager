@@ -15,20 +15,7 @@ class Order < ActiveRecord::Base
   belongs_to :invoice
   belongs_to :sellable
 
-  def price_innovation_center
-    quantity * self.sellable.price_innovation_center
+  def price(priceType)
+    self.sellable.price_value(priceType) * self.quantity
   end
-
-  def price_permanencier
-    quantity * self.sellable.price_permanencier
-  end
-
-  def price_non_commercial
-    quantity * self.sellable.price_non_commercial
-  end
-
-  def price_commercial
-    quantity * self.sellable.price_commercial
-  end
-
 end

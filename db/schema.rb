@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129025326) do
+ActiveRecord::Schema.define(version: 20151129062602) do
 
   create_table "invoices", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -34,14 +34,19 @@ ActiveRecord::Schema.define(version: 20151129025326) do
   add_index "orders", ["invoice_id"], name: "index_orders_on_invoice_id"
   add_index "orders", ["sellable_id"], name: "index_orders_on_sellable_id"
 
+  create_table "price_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "display",    default: false, null: false
+  end
+
   create_table "prices", force: :cascade do |t|
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.float    "innovation_center"
-    t.float    "permanencier"
-    t.float    "non_commercial"
-    t.float    "commercial"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "sellable_id"
+    t.integer  "price_type_id"
+    t.float    "value"
   end
 
   add_index "prices", ["sellable_id"], name: "index_prices_on_sellable_id"

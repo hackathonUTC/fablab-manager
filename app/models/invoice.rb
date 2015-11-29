@@ -19,34 +19,10 @@ class Invoice < ActiveRecord::Base
   belongs_to :creator, class_name: 'User', foreign_key: 'created_by'
   belongs_to :client, class_name: 'User', foreign_key: 'created_for'
 
-  def price_innovation_center
+  def price(priceType)
     sum = 0
     self.orders.each do |o|
-      sum += o.price_innovation_center
-    end
-    sum
-  end
-
-  def price_permanencier
-    sum = 0
-    self.orders.each do |o|
-      sum += o.price_permanencier
-    end
-    sum
-  end
-
-  def price_non_commercial
-    sum = 0
-    self.orders.each do |o|
-      sum += o.price_non_commercial
-    end
-    sum
-  end
-
-  def price_commercial
-    sum = 0
-    self.orders.each do |o|
-      sum += o.price_commercial
+      sum += o.price(priceType)
     end
     sum
   end

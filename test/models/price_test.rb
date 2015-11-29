@@ -2,14 +2,12 @@
 #
 # Table name: prices
 #
-#  id                :integer          not null, primary key
-#  innovation_center :float
-#  permanencier      :float
-#  non_commercial    :float
-#  commercial        :float
-#  sellable_id       :integer
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
+#  id            :integer          not null, primary key
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  sellable_id   :integer
+#  price_type_id :integer
+#  value         :float
 #
 
 require 'test_helper'

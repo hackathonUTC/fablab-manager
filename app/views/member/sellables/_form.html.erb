@@ -1,52 +1,43 @@
 <%= nested_form_for @sellable, validate: true do |f| %>
-  <% if @sellable.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sellable.errors.count, "error") %> prohibited this sellable from being saved:</h2>
+    <% if @sellable.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@sellable.errors.count, "error") %> prohibited this sellable from being saved:</h2>
 
-      <ul>
-      <% @sellable.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :unit %><br>
-    <%= f.text_field :unit, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description %><br>
-    <%= f.text_field :description, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :stock %><br>
-    <%= f.number_field :stock, class: 'form-control' %>
-  </div>
-
-    <%= f.fields_for :price, validate: true do |price_form| %>
-        <div class="form-group">
-          <%= price_form.label :innovation_center %><br>
-          <%= price_form.text_field :innovation_center, class: 'form-control' %>
+          <ul>
+            <% @sellable.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
         </div>
-        <div class="form-group">
-          <%= price_form.label :permanencier %><br>
-          <%= price_form.text_field :permanencier, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= price_form.label :non_commercial %><br>
-          <%= price_form.text_field :non_commercial, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= price_form.label :commercial %><br>
-          <%= price_form.text_field :commercial, class: 'form-control' %>
-        </div>
-
     <% end %>
+
+    <div class="form-group">
+      <%= f.label :unit %><br>
+      <%= f.text_field :unit, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_field :description, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :stock %><br>
+      <%= f.number_field :stock, class: 'form-control' %>
+    </div>
+
+    <%= f.fields_for :prices, validate: true do |price_form| %>
+
+        <div class="form-group rb_price">
+          <%= price_form.label :price %><br>
+          <%= price_form.number_field :value, class: 'form-control', step: 'any' %>
+          <%= price_form.hidden_field :price_type_id, value: 0 %>
+        </div>
+    <% end %>
+
+    <p><%= f.link_to_add "", :prices, id: "rb_add_price" %></p>
 
     <div class="form-group">
       <%= f.label :sellable_type_id %><br>
@@ -54,7 +45,7 @@
     </div>
 
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

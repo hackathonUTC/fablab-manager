@@ -20,24 +20,14 @@ class Sellable < ActiveRecord::Base
 
   belongs_to :sellable_type
 
-  def price
-    self.prices.last
+  # priceType : object
+  def price(priceType)
+    self.prices.order(:created_at).find_by_price_type_id(priceType.id)
   end
 
-  def price_innovation_center
-    self.price.innovation_center
-  end
-
-  def price_permanencier
-    self.price.permanencier
-  end
-
-  def price_non_commercial
-    self.price.non_commercial
-  end
-
-  def price_commercial
-    self.price.commercial
+  # priceType : object
+  def price_value(priceType)
+    self.price(priceType).value
   end
 
 end

@@ -44,7 +44,13 @@
         <% end %>
       </div>
       <div class="col-md-2">
-        Montant : <%= @invoice.price_innovation_center unless @invoice.orders.count == 0 %>
+        <div class="form-inline">
+          <%= form_tag(edit_invoice_path(@invoice)) do %>
+              <%= label_tag :price_type_id %>
+              <%= select_tag :price_type_id, options_from_collection_for_select(@price_types, 'id', 'name', @price_type.id), onchange: 'this.form.submit();', class: 'form-control' %>
+          <% end %>
+        </div><br>
+        Montant : <%= @invoice.price(@price_type) unless @invoice.orders.count == 0 %> €
       </div>
     </div>
 

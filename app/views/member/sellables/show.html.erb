@@ -21,29 +21,16 @@
   <strong><%= Sellable.human_attribute_name :stock %>:</strong>
   <%= @sellable.stock %>
 </p>
-<% unless @sellable.price.nil? %>
-    <% if current_user.is_member? %>
-        <p>
-          <strong><%= Price.human_attribute_name :innovation_center %>:</strong>
-          <%= @sellable.price.innovation_center %>
-        </p>
 
+<% @price_types.each do |p| %>
+    <% if p.display %>
         <p>
-          <strong><%= Price.human_attribute_name :permanencier %>:</strong>
-          <%= @sellable.price.permanencier %>
+          <strong><%= p.name %>:</strong>
+          <%= @sellable.price_value(p) %>
         </p>
     <% end %>
-
-    <p>
-      <strong><%= Price.human_attribute_name :non_commercial %>:</strong>
-      <%= @sellable.price.non_commercial %>
-    </p>
-
-    <p>
-      <strong><%= Price.human_attribute_name :commercial %>:</strong>
-      <%= @sellable.price.commercial %>
-    </p>
 <% end %>
+
 <% unless @sellable.sellable_type.nil? %>
     <p>
       <strong><%= SellableType.model_name.human %>:</strong>

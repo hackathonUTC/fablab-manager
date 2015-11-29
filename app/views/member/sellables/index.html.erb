@@ -9,12 +9,11 @@
     <th><%= Sellable.human_attribute_name :name %></th>
     <th><%= Sellable.human_attribute_name :description %></th>
     <th><%= Sellable.human_attribute_name :stock %></th>
-    <% if current_user.is_member? %>
-        <th><%= Price.human_attribute_name :innovation_center %></th>
-        <th><%= Price.human_attribute_name :permanencier %></th>
+    <% @price_types.each do |p| %>
+        <% if current_user.is_member? || p.display %>
+            <th><%= p.name %></th>
+        <% end %>
     <% end %>
-    <th><%= Price.human_attribute_name :non_commercial %></th>
-    <th><%= Price.human_attribute_name :commercial %></th>
     <th><%= SellableType.model_name.human %></th>
     <th colspan="3"></th>
   </tr>
@@ -27,12 +26,11 @@
         <td><%= sellable.name %></td>
         <td><%= sellable.description %></td>
         <td><%= sellable.stock %></td>
-        <% if current_user.is_member? %>
-            <td><%= sellable.price_innovation_center %></td>
-            <td><%= sellable.price_permanencier %></td>
+        <% @price_types.each do |p| %>
+            <% if current_user.is_member? || p.display %>
+                <td><%= sellable.price_value(p) %> €</td>
+            <% end %>
         <% end %>
-        <td><%= sellable.price_non_commercial %></td>
-        <td><%= sellable.price_commercial %></td>
         <td><%= sellable.sellable_type.name %></td>
         <td><%= link_to 'Show', sellable %></td>
         <% if current_user.is_member? %>

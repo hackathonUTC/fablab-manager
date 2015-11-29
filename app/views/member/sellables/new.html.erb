@@ -2,4 +2,28 @@
 
 <%= render 'form' %>
 
+<script>{
+    var add = $("#rb_add_price");
+
+    var price_types = <%= raw(@price_types.to_json) %>;
+    console.log(price_types);
+
+    var n=4;
+    function click(){
+        n--;
+        add.click();
+        if(n) setTimeout(click, 20);
+        else{
+            $(".rb_price").each(function(i, el){
+                var type = price_types[i];
+                if(!type) return;
+                $(el).children('label').html(type.name);
+                $(el).children("input[type=hidden]").val(type.id);
+            });
+        }
+    }
+    click();
+
+}</script>
+
 <%= link_to 'Retour', sellables_path %>

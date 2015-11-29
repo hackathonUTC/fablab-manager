@@ -1,6 +1,7 @@
 class Member::SellablesController < Member::BaseController
   before_action :set_sellable, only: [:show, :edit, :update, :destroy]
   before_action :set_sellable_types, only: [:edit, :new, :create, :update]
+  before_action :set_price_types
 
   # GET /sellables
   # GET /sellables.json
@@ -25,25 +26,12 @@ class Member::SellablesController < Member::BaseController
   # POST /sellables
   # POST /sellables.json
   def create
-    byebug
-    sellable_info = sellable_params.except(:price)
-    price_info = sellable_params[:price]
-
-    @sellable = Sellable.new(sellable_info)
+    @sellable = Sellable.new(sellable_params)
 
     respond_to do |format|
       if @sellable.save
-        price_info[:sellable_id] = @sellable.id
-        @price = Price.new(price_info)
-        if @price.valid?
-          @price.save
-
           format.html { redirect_to @sellable, notice: 'Sellable was successfully created.' }
           format.json { render :show, status: :created, location: @sellable }
-        else
-          format.html { render :new }
-          format.json { render json: @price.errors, status: :unprocessable_entity }
-        end
       else
         format.html { render :new }
         format.json { render json: @sellable.errors, status: :unprocessable_entity }
@@ -54,23 +42,10 @@ class Member::SellablesController < Member::BaseController
   # PATCH/PUT /sellables/1
   # PATCH/PUT /sellables/1.json
   def update
-    sellable_info = sellable_params.except(:price)
-    price_info = sellable_params[:price]
-
     respond_to do |format|
-      if @sellable.update(sellable_info)
-        price_info[:sellable_id] = @sellable.id
-        @price = Price.new(price_info)
-        if @price.valid?
-          @price.save
-
+      if @sellable.update(sellable_params)
           format.html { redirect_to @sellable, notice: 'Sellable was successfully updated.' }
           format.json { render :show, status: :ok, location: @sellable }
-        else
-          @sellable.destroy
-          format.html { render :edit }
-          format.json { render json: @price.errors, status: :unprocessable_entity }
-        end
       else
         format.html { render :edit }
         format.json { render json: @sellable.errors, status: :unprocessable_entity }
@@ -98,8 +73,12 @@ class Member::SellablesController < Member::BaseController
       @sellable_types = SellableType.all
     end
 
+    def set_price_types
+      @price_types = PriceType.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def sellable_params
-      params.require(:sellable).permit(:unit, :name, :description, :stock, :sellable_type_id, price: [:innovation_center, :permanencier, :non_commercial, :commercial])
+      params.require(:sellable).permit(:unit, :name, :description, :stock, :sellable_type_id, prices_attributes: [:value, :price_type_id])
     end
 end
