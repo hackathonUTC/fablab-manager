@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.turbolinks
 //= require rails.validations
 //= require jquery_nested_form
 //= require_tree .
