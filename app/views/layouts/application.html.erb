@@ -9,9 +9,26 @@
 <body>
 <header>
   <a id="logo" href="index.html"><%= image_tag("logo_fancy.png", alt:"Homepage") %></a>
-  <div class="menu-icon menu-icon-cross">
-    <span></span>
+  <div id="nav-container">
+    <nav id="cssmenu">
+      <ul>
+        <li><a href="#">Informations</a></li>
+        <% if current_user %>
+          <li id="btn-login">
+            <%= link_to current_user.username, new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to 'Deconnection', destroy_user_session_path, class: "btn-nav", method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to 'Connection', new_user_session_path, class: "btn-nav" %>
+          </li> 
+        <% end %>
+      </ul>
+    </nav>
   </div>
+
   <nav>
     <ul>
       <li><a href="#">Accueil</a></li>
