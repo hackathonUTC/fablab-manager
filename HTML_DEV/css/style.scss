@@ -5,6 +5,7 @@
 @import 'reset';
 
 $main-color: rgb(239, 149, 8);
+$hover-color: rgba(255, 255, 255, .3);
 $grey: #585858;
 
 
@@ -305,7 +306,11 @@ header {
 					}
 
 					&:hover > a {
-						background-color: rgba(255, 255, 255, .3);
+						background-color: $hover-color;
+					}
+
+					&.admin {
+						background-color: grayscale($main-color);
 					}
 				}
 

@@ -12,14 +12,17 @@
   <div id="nav-container">
     <nav id="cssmenu">
       <ul>
-        <li><a href="#">Informations</a></li>
+        <li><%= link_to 'Informations', root_path %></li>
         <% if current_user %>
           <li id="btn-login">
-            <%= link_to current_user.username, new_user_session_path %>
+            <%= link_to current_user.username, invoices_path %>
           </li>
           <li>
             <%= link_to 'Deconnection', destroy_user_session_path, class: "btn-nav", method: :delete %>
           </li>
+          <% if true || current_user.is_admin? %>
+            <li class="admin"><a href="#">Admin</a></li>
+          <% end %>
         <% else %>
           <li>
             <%= link_to 'Connection', new_user_session_path, class: "btn-nav" %>
@@ -30,23 +33,46 @@
   </div>
 </header>
 <div id="main" style="margin-top:55px;">
-    <h1 class="text-center">Fablab Manager</h1>
-    <div class="text-center">
-      <%= link_to 'Factures', invoices_path, class: 'btn btn-default' %>
-      <%= link_to 'Produits', sellables_path, class: 'btn btn-default' %>
-      <%= link_to 'Types de produits', sellable_types_path, class: 'btn btn-default' %>
-    </div>
+  <h1 class="text-center">Fablab Manager</h1>
+  <div class="text-center">
+    <%= link_to 'Factures', invoices_path, class: 'btn btn-default' %>
+    <%= link_to 'Produits', sellables_path, class: 'btn btn-default' %>
+    <%= link_to 'Types de produits', sellable_types_path, class: 'btn btn-default' %>
+  </div>
 
-    <br>
-    <hline/>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <br>
+  <hline></hline>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-    <div id="main">
-      
+  <div class="cd-tabs">
+    <nav>
+      <ul class="cd-tabs-navigation">
+        <% @i = 1 %>
+        <% @tabs.each do |t| %>
+          <li>
+            <a data-content="<%= @i %>" class="<% if @i == 1 %><%= "selected " %><% end %>" href="#0">
+              <%= t[:name] %>
+            </a>
+          </li>
+          <% @i = @i + 1 %>
+        <% end %>
+      </ul> <!-- cd-tabs-navigation -->
+    </nav>
 
-      <%= yield %>
-    </div>
+    <ul class="cd-tabs-content">
+      <% @i = 1 %>
+      <% @tabs.each do |t| %>
+        <li data-content="<%= @i %>" class="<% if @i == 1 %><%= "selected " %><% end %>">
+          <%= raw(t[:content]) %>
+        </li>
+        <% @i = @i + 1 %>
+      <% end %>
+    </ul>
+
+    <%= yield %>
+    
+  <dive>
 </div>
 
 </body>
