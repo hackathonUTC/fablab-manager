@@ -5,6 +5,8 @@
 #  id          :integer          not null, primary key
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  payed       :boolean
+#  comment     :string
 #  created_by  :integer
 #  created_for :integer
 #

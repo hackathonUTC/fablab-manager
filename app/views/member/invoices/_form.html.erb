@@ -16,26 +16,32 @@
         <%= f.fields_for :orders do |order_form| %>
             <div class="form-inline">
               <%= order_form.label :quantity %>
-              <%= order_form.text_field :quantity, class: 'form-control' %>
+              <%= order_form.text_field :quantity, class: 'form-control', disabled: !current_user.is_member? %>
 
               <%= order_form.label :discount %>
-              <%= order_form.text_field :discount, class: 'form-control' %>
+              <%= order_form.text_field :discount, class: 'form-control', disabled: !current_user.is_member? %>
 
               <%= order_form.label :sellable_id %>
-              <%= order_form.select :sellable_id, options_from_collection_for_select(@sellables, 'id', 'name'), class: 'form-control' %>
-              <%= order_form.link_to_remove "Remove this task" %>
+              <%= order_form.select :sellable_id, options_from_collection_for_select(@sellables, 'id', 'name'), {}, {class: 'form-control', disabled: !current_user.is_member?} %>
+              <% if current_user.is_member? %>
+                  <%= order_form.link_to_remove "Remove this task" %>
+              <% end %>
             </div>
         <% end %>
-        <p><%= f.link_to_add "Ajouter une #{Order.model_name.human}", :orders %></p>
+        <% if current_user.is_member? %>
+            <p><%= f.link_to_add "Ajouter une #{Order.model_name.human}", :orders %></p>
+        <% end %>
 
         <div class="form-group">
           <%= f.label :created_for %><br>
-          <%= f.select :created_for, options_from_collection_for_select(@users, 'id', 'username'), class: 'form-control' %>
+          <%= f.select :created_for, options_from_collection_for_select(@users, 'id', 'username'), {}, {class: 'form-control', disabled: !current_user.is_member?} %>
         </div>
 
-        <div class="actions">
-          <%= f.submit %>
-        </div>
+        <% if current_user.is_member? %>
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+        <% end %>
       </div>
       <div class="col-md-2">
         Montant : <%= @invoice.price_innovation_center unless @invoice.orders.count == 0 %>

@@ -4,22 +4,22 @@
 
 <table class="table table-responsive">
   <thead>
-    <tr>
-      <th><%= Sellable.human_attribute_name :unit %></th>
-      <th><%= Sellable.human_attribute_name :name %></th>
-      <th><%= Sellable.human_attribute_name :description %></th>
-      <th><%= Sellable.human_attribute_name :stock %></th>
-      <th><%= Price.human_attribute_name :innovation_center %></th>
-      <th><%= Price.human_attribute_name :permanencier %></th>
-      <th><%= Price.human_attribute_name :non_commercial %></th>
-      <th><%= Price.human_attribute_name :commercial %></th>
-      <th><%= SellableType.model_name.human %></th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th><%= Sellable.human_attribute_name :unit %></th>
+    <th><%= Sellable.human_attribute_name :name %></th>
+    <th><%= Sellable.human_attribute_name :description %></th>
+    <th><%= Sellable.human_attribute_name :stock %></th>
+    <th><%= Price.human_attribute_name :innovation_center %></th>
+    <th><%= Price.human_attribute_name :permanencier %></th>
+    <th><%= Price.human_attribute_name :non_commercial %></th>
+    <th><%= Price.human_attribute_name :commercial %></th>
+    <th><%= SellableType.model_name.human %></th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @sellables.each do |sellable| %>
+  <% @sellables.each do |sellable| %>
       <tr>
         <td><%= sellable.unit %></td>
         <td><%= sellable.name %></td>
@@ -31,13 +31,16 @@
         <td><%= sellable.price_commercial %></td>
         <td><%= sellable.sellable_type.name %></td>
         <td><%= link_to 'Show', sellable %></td>
-        <td><%= link_to 'Edit', edit_sellable_path(sellable) %></td>
-        <td><%= link_to 'Destroy', sellable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.is_member? %>
+            <td><%= link_to 'Edit', edit_sellable_path(sellable) %></td>
+            <td><%= link_to 'Destroy', sellable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to "Nouveau #{Sellable.model_name.human}", new_sellable_path %>
+<% if current_user.is_member? %>
+    <%= link_to "Nouveau #{Sellable.model_name.human}", new_sellable_path %>
+<% end %>

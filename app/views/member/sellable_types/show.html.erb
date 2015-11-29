@@ -7,5 +7,7 @@
   <%= @sellable_type.name %>
 </p>
 
-<%= link_to 'Editer', edit_sellable_type_path(@sellable_type) %> |
+<% if current_user.is_member? %>
+    <%= link_to 'Editer', edit_sellable_type_path(@sellable_type) %> |
+<% end %>
 <%= link_to 'Retour', sellable_types_path %>

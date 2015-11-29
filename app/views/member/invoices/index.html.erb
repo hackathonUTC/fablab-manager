@@ -4,23 +4,29 @@
 
 <table class="table table-responsive">
   <thead>
-    <tr>
-      <th>Numéro</th>
-      <th colspan="2"></th>
-    </tr>
+  <tr>
+    <th>Numéro</th>
+    <th>Destinataire</th>
+    <th colspan="2"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @invoices.each do |invoice| %>
+  <% @invoices.each do |invoice| %>
       <tr>
         <td><%= invoice.id %></td>
+        <td><%= invoice.client.email %></td>
         <td><%= link_to 'Show', invoice %></td>
-        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.is_member? %>
+            <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to "Nouveau #{Invoice.model_name.human}", new_invoice_path %>
+<% if current_user.is_member? %>
+    <%= link_to "Nouveau #{Invoice.model_name.human}", new_invoice_path %>
+<% end %>

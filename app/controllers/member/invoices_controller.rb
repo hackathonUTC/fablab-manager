@@ -9,7 +9,11 @@ class Member::InvoicesController < Member::BaseController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    if current_user.is_member?
+      @invoices = Invoice.all
+    else
+      @invoices = current_user.invoices
+    end
   end
 
   # GET /invoices/1

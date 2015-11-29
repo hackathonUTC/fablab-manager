@@ -22,31 +22,34 @@
   <%= @sellable.stock %>
 </p>
 <% unless @sellable.price.nil? %>
-<p>
-  <strong><%= Price.human_attribute_name :innovation_center %>:</strong>
-  <%= @sellable.price.innovation_center %>
-</p>
+    <p>
+      <strong><%= Price.human_attribute_name :innovation_center %>:</strong>
+      <%= @sellable.price.innovation_center %>
+    </p>
 
-<p>
-  <strong><%= Price.human_attribute_name :permanencier %>:</strong>
-  <%= @sellable.price.permanencier %>
-</p>
+    <p>
+      <strong><%= Price.human_attribute_name :permanencier %>:</strong>
+      <%= @sellable.price.permanencier %>
+    </p>
 
-<p>
-  <strong><%= Price.human_attribute_name :non_commercial %>:</strong>
-  <%= @sellable.price.non_commercial %>
-</p>
+    <p>
+      <strong><%= Price.human_attribute_name :non_commercial %>:</strong>
+      <%= @sellable.price.non_commercial %>
+    </p>
 
-<p>
-  <strong><%= Price.human_attribute_name :commercial %>:</strong>
-  <%= @sellable.price.commercial %>
-</p>
+    <p>
+      <strong><%= Price.human_attribute_name :commercial %>:</strong>
+      <%= @sellable.price.commercial %>
+    </p>
 <% end %>
 <% unless @sellable.sellable_type.nil? %>
-<p>
-  <strong><%= SellableType.model_name.human %>:</strong>
-  <%= @sellable.sellable_type.name %>
-</p>
+    <p>
+      <strong><%= SellableType.model_name.human %>:</strong>
+      <%= @sellable.sellable_type.name %>
+    </p>
 <% end %>
-<%= link_to 'Editer', edit_sellable_path(@sellable) %> |
+
+<% if current_user.is_member? %>
+    <%= link_to 'Editer', edit_sellable_path(@sellable) %> |
+<% end %>
 <%= link_to 'Retour', sellables_path %>
