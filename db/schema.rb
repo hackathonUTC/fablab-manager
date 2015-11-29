@@ -11,19 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128232159) do
+ActiveRecord::Schema.define(version: 20151129005625) do
 
   create_table "invoices", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "payed"
+    t.string   "comment"
   end
 
   create_table "orders", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "quantity"
     t.float    "discount"
     t.integer  "invoice_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.integer  "sellable_id"
   end
 
@@ -31,41 +33,41 @@ ActiveRecord::Schema.define(version: 20151128232159) do
   add_index "orders", ["sellable_id"], name: "index_orders_on_sellable_id"
 
   create_table "prices", force: :cascade do |t|
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.float    "innovation_center"
     t.float    "permanencier"
     t.float    "non_commercial"
     t.float    "commercial"
     t.integer  "sellable_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
   end
 
   add_index "prices", ["sellable_id"], name: "index_prices_on_sellable_id"
 
   create_table "sellable_types", force: :cascade do |t|
-    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "sellables", force: :cascade do |t|
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "unit"
     t.string   "name"
     t.string   "description"
     t.integer  "stock"
     t.integer  "sellable_type_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
   end
 
   add_index "sellables", ["sellable_type_id"], name: "index_sellables_on_sellable_type_id"
 
   create_table "users", force: :cascade do |t|
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "username",   default: "", null: false
     t.string   "cn",         default: "", null: false
     t.string   "email",      default: "", null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true
