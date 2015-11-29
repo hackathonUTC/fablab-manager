@@ -35,7 +35,12 @@
 
     <br>
     <hline/>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <div id="main">
+      <%= link_to 'Connection', new_user_session_path %>
+      <%= link_to 'Deconnection', destroy_user_session_path, method: :delete %>
       <%= yield %>
     </div>
   </div>

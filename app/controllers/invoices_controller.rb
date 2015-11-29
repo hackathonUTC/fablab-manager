@@ -1,6 +1,8 @@
 class InvoicesController < ApplicationController
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
   before_action :set_sellables, only: [:update, :edit, :create, :new]
+  before_action :set_users, only: [:update, :edit, :create, :new]
+
 
   # GET /invoices
   # GET /invoices.json
@@ -27,6 +29,7 @@ class InvoicesController < ApplicationController
   # POST /invoices.json
   def create
     @invoice = Invoice.new(invoice_params)
+    @invoice.created_by = current_user.id
 
     respond_to do |format|
       if @invoice.save
@@ -71,6 +74,10 @@ class InvoicesController < ApplicationController
 
     def set_sellables
       @sellables = Sellable.all
+    end
+
+    def set_users
+      @users = User.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

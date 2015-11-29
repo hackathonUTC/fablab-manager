@@ -1,12 +1,13 @@
 # == Schema Information
 #
-# Table name: invoices
+# Table name: users
 #
-#  id          :integer          not null, primary key
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  created_by  :integer
-#  created_for :integer
+#  id         :integer          not null, primary key
+#  username   :string           default(""), not null
+#  cn         :string           default(""), not null
+#  email      :string           default(""), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -15,8 +16,8 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+#one: {}
 # column: value
 #
-two: {}
+#two: {}
 #  column: value

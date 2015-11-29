@@ -14,25 +14,17 @@ jQuery(document).ready(function($){
         e.preventDefault();
         $this = $(this);
         if($this.hasClass('is-opened')){
-            $this.addClass('is-closed').removeClass('is-opened');
-            $('#nav-container').removeClass('force-bg');
-            
+            $this.addClass('is-closed').removeClass('is-opened');            
         } else {
             $this.removeClass('is-closed').addClass('is-opened');
-            $('#nav-container').addClass('force-bg');
         }
         
         toggle_panel_visibility($('#cssmenu'));
     });
     
-    
 	var $L = 768,
 		$menu_navigation = $('#cssmenu');
-
-	
 	$(window).on('resize', function(){
-	
-	
 		if( $(window).width() >= $L && $menu_navigation.hasClass('speed-in')) {
 			$menu_navigation.removeClass('speed-in');
 		}
