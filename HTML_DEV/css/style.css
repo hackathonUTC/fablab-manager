@@ -42,108 +42,189 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-@media screen and (min-width: 0px) and (max-width: 768px) {
-  #cssmenu {
-    left: inherit;
-    width: 100%;
-    height: calc(100% - 60px);
-    right: -100%;
-    background: rgba(168, 168, 168, 0.96);
-    position: fixed;
-    overflow-y: auto; }
+.cd-tabs {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 2em auto; }
 
-  #cssmenu > ul > li {
-    float: none !important; }
+.cd-tabs:after {
+  content: "";
+  display: table;
+  clear: both; }
 
-  #cssmenu ul li:not(.contact-btn) {
-    border-top: 1px solid rgba(255, 255, 255, 0.15); }
-
-  header > #nav-container > #cssmenu > ul > li > a {
-    text-align: center; }
-
-  header > #nav-container > #cssmenu > ul {
-    margin-right: 0px !important;
-    width: 100%; }
-
-  header > #nav-container > #cssmenu > ul > #btn-connexion {
-    margin-left: 0px;
-    text-align: center; }
-
-  #nav-container {
-    position: fixed !important; }
-
-  .menu-icon {
-    display: block !important; } }
-/* Icon Menu */
-.menu-icon {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: transparent;
-  right: 0;
-  margin-top: 3px;
-  margin-right: 10px;
+.cd-tabs::after {
+  /* subtle gradient layer on top right - to indicate it's possible to scroll */
+  position: absolute;
   top: 0;
-  border: 1px solid #fff;
-  cursor: pointer;
+  right: 0;
+  height: 60px;
+  width: 50px;
+  z-index: 1;
+  pointer-events: none;
+  background: -webkit-linear-gradient(right, #f8f7ee, rgba(248, 247, 238, 0));
+  background: linear-gradient(to left, #f8f7ee, rgba(248, 247, 238, 0));
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+  -moz-transition: opacity .3s 0s, visibility 0s 0s;
+  transition: opacity .3s 0s, visibility 0s 0s; }
+
+.no-cssgradients .cd-tabs::after {
   display: none; }
 
-.menu-icon span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.cd-tabs.is-ended::after {
+  /* class added in jQuery - remove the gradient layer when it's no longer possible to scroll */
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+  -moz-transition: opacity .3s 0s, visibility 0s .3s;
+  transition: opacity .3s 0s, visibility 0s .3s; }
+
+.cd-tabs nav {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #f8f7ee;
+  box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06); }
+
+@media only screen and (min-width: 768px) {
+  .cd-tabs::after {
+    display: none; }
+
+  .cd-tabs nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    box-shadow: inset -2px 0 3px rgba(203, 196, 130, 0.06);
+    z-index: 1; } }
+.cd-tabs-navigation {
+  width: 360px; }
+
+.cd-tabs-navigation:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.cd-tabs-navigation li {
+  float: left; }
+
+.cd-tabs-navigation a {
+  position: relative;
   display: block;
-  width: 22px;
-  height: 2px;
-  background-color: white;
-  transform: translateX(-50%) translateY(-50%); }
+  height: 60px;
+  width: 100px;
+  text-align: center;
+  font-size: 12px;
+  font-size: 0.75rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  color: #c3c2b9;
+  padding-top: 25px; }
 
-.menu-icon span::before, .menu-icon span::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.no-touch .cd-tabs-navigation a:hover {
+  color: #29324e;
+  background-color: rgba(233, 230, 202, 0.3); }
+
+.cd-tabs-navigation a.selected {
+  background-color: #ffffff !important;
+  box-shadow: inset 0 2px 0 #f05451;
+  color: #29324e; }
+
+.cd-tabs-navigation a[data-content='1']::before {
+  background-position: 0 0; }
+
+.cd-tabs-navigation a[data-content='2']::before {
+  background-position: -20px 0; }
+
+.cd-tabs-navigation a[data-content='3']::before {
+  background-position: -40px 0; }
+
+.cd-tabs-navigation a[data-content='4']::before {
+  background-position: -60px 0; }
+
+.cd-tabs-navigation a[data-content='5']::before {
+  background-position: -80px 0; }
+
+.cd-tabs-navigation a[data-content='6']::before {
+  background-position: -100px 0; }
+
+.cd-tabs-navigation a[data-content='7'].selected::before {
+  background-position: 0 -20px; }
+
+.cd-tabs-navigation a[data-content='8'].selected::before {
+  background-position: -20px -20px; }
+
+.cd-tabs-navigation a[data-content='9'].selected::before {
+  background-position: -40px -20px; }
+
+.cd-tabs-navigation a[data-content='10'].selected::before {
+  background-position: -60px -20px; }
+
+.cd-tabs-navigation a[data-content='11'].selected::before {
+  background-position: -80px -20px; }
+
+.cd-tabs-navigation a[data-content='12'].selected::before {
+  background-position: -100px -20px; }
+
+@media only screen and (min-width: 768px) {
+  .cd-tabs-navigation {
+    /* move the nav to the left on medium sized devices */
+    width: 80px;
+    float: left; }
+
+  .cd-tabs-navigation a {
+    height: 80px;
+    width: 80px;
+    padding-top: 46px; }
+
+  .cd-tabs-navigation a.selected {
+    box-shadow: inset 2px 0 0 #f05451; }
+
+  .cd-tabs-navigation a::before {
+    top: 22px; } }
+.cd-tabs-content {
+  background: #ffffff; }
+
+.cd-tabs-content li {
+  display: none;
+  padding: 1.4em; }
+
+.cd-tabs-content li.selected {
   display: block;
-  width: 22px;
-  height: 2px;
-  background-color: white;
-  transform: translateY(-6px);
-  transition: transform 0.5s; }
+  -webkit-animation: cd-fade-in 0.5s;
+  -moz-animation: cd-fade-in 0.5s;
+  animation: cd-fade-in 0.5s; }
 
-.menu-icon span::after {
-  transform: translateY(6px); }
+.cd-tabs-content li p {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #8493bf;
+  margin-bottom: 2em; }
 
-.menu-icon:hover span:before {
-  transform: translateY(-8px); }
+@media only screen and (min-width: 768px) {
+  .cd-tabs-content {
+    min-height: 480px; }
 
-.menu-icon:hover span:after {
-  transform: translateY(8px); }
-
-.menu-icon-cross {
-  transition: transform 0.5s; }
-
-.menu-icon-cross span::before, .menu-icon-cross span::after {
-  transform-origin: 50% 50%; }
-
-.menu-icon-cross span {
-  transition: background 0.5s, transform 0.5s; }
-
-.menu-icon-cross.is-opened {
-  transform: rotate(180deg); }
-
-.menu-icon-cross.is-opened span {
-  background: transparent; }
-
-.menu-icon-cross.is-opened span::before {
-  transform: translateY(0) rotate(45deg); }
-
-.menu-icon-cross.is-opened span::after {
-  transform: translateY(0) rotate(-45deg); }
-
-#cssmenu.speed-in {
-  right: 0; }
-
+  .cd-tabs-content li {
+    padding: 2em 2em 2em 7em; } }
+@-webkit-keyframes cd-fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-moz-keyframes cd-fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes cd-fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 html {
   background-color: #eaebec;
   font-family: Lato; }
@@ -162,38 +243,47 @@ header {
       width: auto;
       margin-left: 10px; }
   header > #nav-container {
-    position: initial; }
+    position: initial;
+    height: inherit; }
     header > #nav-container > #cssmenu {
       -webkit-transition: right 0.3s;
       -moz-transition: right 0.3s;
       transition: right 0.3s;
-      -webkit-overflow-scrolling: touch; }
+      -webkit-overflow-scrolling: touch;
+      height: inherit; }
       header > #nav-container > #cssmenu > ul {
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
-        margin-right: 10px; }
+        margin-right: 10px;
+        height: inherit; }
         header > #nav-container > #cssmenu > ul > li {
           float: left;
-          line-height: 55px; }
+          display: block;
+          line-height: 55px;
+          height: inherit; }
           header > #nav-container > #cssmenu > ul > li > a {
             color: white;
             font-weight: 300;
             text-decoration: none;
-            padding: 0 22px;
+            padding: 0 18px;
             float: none;
             display: block;
             font-size: 14px; }
-        header > #nav-container > #cssmenu > ul > li:hover a:not(#btn_connexion) {
-          background-color: rgba(255, 255, 255, 0.3); }
-        header > #nav-container > #cssmenu > ul > #btn-connexion {
-          margin-left: 5px; }
-          header > #nav-container > #cssmenu > ul > #btn-connexion > a {
-            border: 1px solid white;
-            border-radius: 3px;
-            display: initial;
-            padding: 4px 22px 6px; }
+          header > #nav-container > #cssmenu > ul > li:hover > a {
+            background-color: rgba(255, 255, 255, 0.3); }
+        header > #nav-container > #cssmenu > ul #btn-login:hover + li {
+          background: rgba(255, 255, 255, 0.3); }
+        header > #nav-container > #cssmenu > ul #btn-connexion {
+          background: #ef9508;
+          margin: 0 5px;
+          border: 1px solid white;
+          border-radius: 3px;
+          display: initial;
+          padding: 4px 22px 6px; }
+          header > #nav-container > #cssmenu > ul #btn-connexion:hover {
+            background-color: rgba(255, 255, 255, 0.3); }
 
 #main {
   margin-left: auto;
@@ -222,6 +312,24 @@ header {
       border: 1px #eaebec solid;
       border-radius: 3px;
       padding: 10px; }
+    #main > .white-box .horaires {
+      text-align: center;
+      vertical-align: center;
+      border-collapse: collapse; }
+      #main > .white-box .horaires th {
+        font-weight: 500; }
+      #main > .white-box .horaires th,
+      #main > .white-box .horaires tr,
+      #main > .white-box .horaires td {
+        border: 1px solid #585858;
+        text-align: center;
+        width: 80px;
+        height: 20px; }
+      #main > .white-box .horaires td {
+        height: 50px; }
+      #main > .white-box .horaires .noborder {
+        border-top: none;
+        border-left: none; }
     #main > .white-box p {
       font-size: 16px;
       font-weight: 300;

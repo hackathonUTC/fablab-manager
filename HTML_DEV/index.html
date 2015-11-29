@@ -17,17 +17,13 @@
 	<body>
 		<header>
 			<a id="logo" href="index.html"><img src="img/logo_fancy.png" alt="Homepage"></a>
-			<div class="menu-icon menu-icon-cross">
-				<span></span>
-			</div>
 			<div id="nav-container">
 				<nav id="cssmenu">
 					<ul>
-						<li><a href="#">Accueil</a></li>
-						<li><a href="#">L'Asso</a></li>
-						<li><a href="#">Prestations</a></li>
-						<li><a href="#">Contact</a></li>
-						<li id="btn-connexion"><a href="#">Connexion</a></li>
+						<li><a href="#">Informations</a></li>
+						<li><a id="btn-connexion" href="#">Connexion</a></li>
+						<li id="btn-login"><a href="#">login</a></li>
+						<li><a id="btn-connexion" href="#">Deconnection</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -35,194 +31,220 @@
 		
 		
 		<div id="main">
+
+			<div class="cd-tabs">
+				<nav>
+					<ul class="cd-tabs-navigation">
+						<li><a data-content="1" class="selected" href="#0">Accueil</a></li>
+						<li><a data-content="2" href="#0">Machines</a></li>
+						<li><a data-content="3" href="#0">Fournitures</a></li>
+						<li><a data-content="3" href="#0">Contact</a></li>
+					</ul> <!-- cd-tabs-navigation -->
+				</nav>
+
+				<ul class="cd-tabs-content">
+					<li data-content="1" class="selected">
+						<div class="slogan">On ne l'appelle pas <span class="accentuer">FabLab</span> pour rien !</div>
 			
-			<div class="slogan">On ne l'appelle pas <span class="accentuer">FabLab</span> pour rien !</div>
+						<div class="white-box">
+							<h2>Le FabLab ? C'est quoi ?</h2>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un Fab Lab (abréviation de Fabrication laboratory) est une plate-forme ouverte de création et de prototypage d’objets physiques, “intelligents” ou non. Il s’adresse aux entrepreneurs, aux designers, aux artistes, aux étudiants désireux d’expérimenter et d’enrichir leurs connaissances pratiques en électronique, en CFAO, en design, aux bricolages du XXIe siècle… </p>
+						</div>
+
+						<div class="white-box">
+							<center>
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2596.3712934710197!2d2.7932739151603565!3d49.401883779344416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e7d41063bb0aed%3A0x2ce8f1c5a7340310!2sCentre+d&#39;Innovation+UTC!5e0!3m2!1sfr!2sfr!4v1448747947641" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</center>
+
+							
+							<!--<h3>Horaires</h3>
+							<table class="horaires">
+								<thead>
+									<tr>
+										<th class="noborder"></th>
+										<th>Lundi</th>
+										<th>Mardi</th>
+										<th>Mercredi</th>
+										<th>Jeudi</th>
+										<th>Vendredi</th>
+										<th>Samedi</th>
+										<th>Dimanche</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>9h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>10h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>11h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>12h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>13h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>14h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>15h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>16h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>17h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>18h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>19h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>20h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>21h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>22h</th>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+
+								</tbody>
+							</table> -->
+						</div>
+
+						<div class="white-box">
+							<h2>Actualités</h2>
+							<div class="post">
+								<p><span class="accentuer">FabLab le retour</span><br>
+								<br>
+								Posted on 11 octobre 2014<br>
+								<br>
+				Un nouveau semestre implique une nouvelle équipe de choc. Me voilà donc sur le pied de guerre en tant que nouveau membre de la communication de FabLab. Je me ferai un plaisir de vous tenir informés de l’actualité de l’atelier étudiant et n’hésitez pas à venir nous rencontrer au 1er étage de Centre d’Innovation.<br>
+				Nous vous rappelons qu’il n’est pas nécessaire d’avoir un projet en cours pour venir : FabLab ouvre ses portes à toute personne intéressée par l’électronique et la mécanique, curieuse de découvrir, d’apprendre, ou bien à toute personne voulant passer un peu de son temps avec nous !<br>
+				Alors à bientôt et n’oubliez pas de nous suivre sur Facebook et Twitter !
+								</p>
+							</div>
+						</div>
+					</li>
+
+					<li data-content="2">
+						<p>Machines</p>
+					</li>
+
+					<li data-content="3">
+						<p>Fournitures</p>
+					</li>
+					<li data-content="4">
+						<p>Contact</p>
+					</li>
+				</ul> <!-- cd-tabs-content -->
+			</div> <!-- cd-tabs -->
 			
-			<div class="white-box">
-				<h2>Le FabLab ? C'est quoi ?</h2>
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un Fab Lab (abréviation de Fabrication laboratory) est une plate-forme ouverte de création et de prototypage d’objets physiques, “intelligents” ou non. Il s’adresse aux entrepreneurs, aux designers, aux artistes, aux étudiants désireux d’expérimenter et d’enrichir leurs connaissances pratiques en électronique, en CFAO, en design, aux bricolages du XXIe siècle… </p>
-			</div>
-
-			<div class="white-box">
-				<center>
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2596.3712934710197!2d2.7932739151603565!3d49.401883779344416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e7d41063bb0aed%3A0x2ce8f1c5a7340310!2sCentre+d&#39;Innovation+UTC!5e0!3m2!1sfr!2sfr!4v1448747947641" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-				</center>
-
-				
-				<!--<h3>Horaires</h3>
-				<table class="horaires">
-					<thead>
-						<tr>
-							<th class="noborder"></th>
-							<th>Lundi</th>
-							<th>Mardi</th>
-							<th>Mercredi</th>
-							<th>Jeudi</th>
-							<th>Vendredi</th>
-							<th>Samedi</th>
-							<th>Dimanche</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th>9h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>10h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>11h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>12h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>13h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>14h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>15h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>16h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>17h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>18h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>19h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>20h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>21h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>22h</th>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
-
-					</tbody>
-				</table> -->
-			</div>
-
-			<div class="white-box">
-				<h2>Actualités</h2>
-				<div class="post">
-					<p><span class="accentuer">FabLab le retour</span><br>
-					<br>
-					Posted on 11 octobre 2014<br>
-					<br>
-	Un nouveau semestre implique une nouvelle équipe de choc. Me voilà donc sur le pied de guerre en tant que nouveau membre de la communication de FabLab. Je me ferai un plaisir de vous tenir informés de l’actualité de l’atelier étudiant et n’hésitez pas à venir nous rencontrer au 1er étage de Centre d’Innovation.<br>
-	Nous vous rappelons qu’il n’est pas nécessaire d’avoir un projet en cours pour venir : FabLab ouvre ses portes à toute personne intéressée par l’électronique et la mécanique, curieuse de découvrir, d’apprendre, ou bien à toute personne voulant passer un peu de son temps avec nous !<br>
-	Alors à bientôt et n’oubliez pas de nous suivre sur Facebook et Twitter !
-					</p>
-				</div>
-			</div>
-		</div>
-		<script src="js/main-menu.js"></script>
+		<script src="js/main.js"></script>	
 	</body>
 </html>
