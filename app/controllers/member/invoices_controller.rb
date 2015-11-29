@@ -1,4 +1,4 @@
-class InvoicesController < ApplicationController
+class Member::InvoicesController < Member::BaseController
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
   before_action :set_sellables, only: [:update, :edit, :create, :new]
   before_action :set_users, only: [:update, :edit, :create, :new]

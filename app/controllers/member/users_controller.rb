@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Member::UsersController < Member::BaseController
   before_action :set_user, only: [:show]
 
   # GET /users

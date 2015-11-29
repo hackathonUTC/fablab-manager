@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#show'
-  resources :sellable_types
-  resources :sellables do
-    get :autocomplete_sellable_type_name, :on => :collection
+
+  scope '/member', module: 'member' do
+    resources :sellable_types
+    resources :sellables
+    resources :invoices
   end
-  resources :invoices
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

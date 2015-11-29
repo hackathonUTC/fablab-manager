@@ -1,4 +1,4 @@
-class SellablesController < ApplicationController
+class Member::SellablesController < Member::BaseController
   before_action :set_sellable, only: [:show, :edit, :update, :destroy]
   before_action :set_sellable_types, only: [:edit, :new, :create, :update]
 

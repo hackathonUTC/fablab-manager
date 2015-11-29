@@ -1,4 +1,4 @@
-class SellableTypesController < ApplicationController
+class Member::SellableTypesController < Member::BaseController
   before_action :set_sellable_type, only: [:show, :edit, :update, :destroy]
 
   # GET /sellable_types
