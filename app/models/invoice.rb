@@ -2,15 +2,20 @@
 #
 # Table name: invoices
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  created_by  :integer
+#  created_for :integer
 #
 
 class Invoice < ActiveRecord::Base
   has_many :orders, dependent: :destroy
   accepts_nested_attributes_for :orders, :allow_destroy => true
   validates :orders, length: {minimum: 1}
+
+  has_one :creator, class_name: 'User', foreign_key: 'created_by'
+  has_one :client, class_name: 'User', foreign_key: 'created_for'
 
   def price_innovation_center
     sum = 0
