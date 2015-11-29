@@ -14,8 +14,8 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :orders, :allow_destroy => true
   validates :orders, length: {minimum: 1}
 
-  has_one :creator, class_name: 'User', foreign_key: 'created_by'
-  has_one :client, class_name: 'User', foreign_key: 'created_for'
+  belongs_to :creator, class_name: 'User', foreign_key: 'created_by'
+  belongs_to :client, class_name: 'User', foreign_key: 'created_for'
 
   def price_innovation_center
     sum = 0
