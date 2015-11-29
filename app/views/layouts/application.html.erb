@@ -28,28 +28,8 @@
       </ul>
     </nav>
   </div>
-
-  <nav>
-    <ul>
-      <li><a href="#">Accueil</a></li>
-      <li><a href="#">L'Asso</a></li>
-      <li><a href="#">Présentation</a></li>
-      <li><a href="#">Devis</a></li>
-      <li><a href="#">Ventes</a></li>
-      <li><a href="#">Contact</a></li>
-      <li id="btn-connexion">
-        <% if current_user %>
-          <%= current_user.username %>
-          <%= link_to 'Deconnection', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Connection', new_user_session_path %>
-        <% end %>
-      </li>
-    </ul>
-  </nav>
 </header>
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
+<div id="main" style="margin-top:55px;">
     <h1 class="text-center">Fablab Manager</h1>
     <div class="text-center">
       <%= link_to 'Factures', invoices_path, class: 'btn btn-default' %>
@@ -67,7 +47,6 @@
 
       <%= yield %>
     </div>
-  </div>
 </div>
 
 </body>
