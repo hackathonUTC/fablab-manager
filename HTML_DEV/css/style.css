@@ -111,18 +111,30 @@ header {
       border: 1px #eaebec solid;
       border-radius: 3px;
       padding: 10px; }
-      #main > .white-box > .post > p {
-        font-size: 16px;
-        font-weight: 300;
-        display: inline-block;
-        line-height: 1.4; }
+    #main > .white-box .horaires {
+      text-align: center;
+      vertical-align: center;
+      border-collapse: collapse; }
+      #main > .white-box .horaires th {
+        font-weight: 500; }
+      #main > .white-box .horaires th,
+      #main > .white-box .horaires tr,
+      #main > .white-box .horaires td {
+        border: 1px solid #585858;
+        text-align: center;
+        width: 80px;
+        height: 20px; }
+      #main > .white-box .horaires td {
+        height: 50px; }
+      #main > .white-box .horaires .noborder {
+        border-top: none;
+        border-left: none; }
     #main > .white-box > p {
       font-size: 16px;
       font-weight: 300;
       display: inline-block;
-      line-height: 1.4; }
-      #main > .white-box > p::first-line {
-        margin-left: 20px; }
+      line-height: 1.4;
+      text-indent: 30px; }
     #main > .white-box > iframe {
       display: inline-block; }
 
