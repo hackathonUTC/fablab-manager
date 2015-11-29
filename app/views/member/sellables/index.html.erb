@@ -9,8 +9,10 @@
     <th><%= Sellable.human_attribute_name :name %></th>
     <th><%= Sellable.human_attribute_name :description %></th>
     <th><%= Sellable.human_attribute_name :stock %></th>
-    <th><%= Price.human_attribute_name :innovation_center %></th>
-    <th><%= Price.human_attribute_name :permanencier %></th>
+    <% if current_user.is_member? %>
+        <th><%= Price.human_attribute_name :innovation_center %></th>
+        <th><%= Price.human_attribute_name :permanencier %></th>
+    <% end %>
     <th><%= Price.human_attribute_name :non_commercial %></th>
     <th><%= Price.human_attribute_name :commercial %></th>
     <th><%= SellableType.model_name.human %></th>
@@ -25,8 +27,10 @@
         <td><%= sellable.name %></td>
         <td><%= sellable.description %></td>
         <td><%= sellable.stock %></td>
-        <td><%= sellable.price_innovation_center %></td>
-        <td><%= sellable.price_permanencier %></td>
+        <% if current_user.is_member? %>
+            <td><%= sellable.price_innovation_center %></td>
+            <td><%= sellable.price_permanencier %></td>
+        <% end %>
         <td><%= sellable.price_non_commercial %></td>
         <td><%= sellable.price_commercial %></td>
         <td><%= sellable.sellable_type.name %></td>

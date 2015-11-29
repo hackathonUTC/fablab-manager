@@ -22,15 +22,17 @@
   <%= @sellable.stock %>
 </p>
 <% unless @sellable.price.nil? %>
-    <p>
-      <strong><%= Price.human_attribute_name :innovation_center %>:</strong>
-      <%= @sellable.price.innovation_center %>
-    </p>
+    <% if current_user.is_member? %>
+        <p>
+          <strong><%= Price.human_attribute_name :innovation_center %>:</strong>
+          <%= @sellable.price.innovation_center %>
+        </p>
 
-    <p>
-      <strong><%= Price.human_attribute_name :permanencier %>:</strong>
-      <%= @sellable.price.permanencier %>
-    </p>
+        <p>
+          <strong><%= Price.human_attribute_name :permanencier %>:</strong>
+          <%= @sellable.price.permanencier %>
+        </p>
+    <% end %>
 
     <p>
       <strong><%= Price.human_attribute_name :non_commercial %>:</strong>
