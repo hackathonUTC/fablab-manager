@@ -62,7 +62,6 @@ $grey: #585858;
   .cd-tabs nav {
     position: fixed;
     top: 55px;
-    left: 0;
     height: 100%;
     box-shadow: inset -2px 0 3px rgba(203, 196, 130, 0.06);
     z-index: 1;
@@ -93,6 +92,7 @@ $grey: #585858;
   font-weight: 700;
   color: #c3c2b9;
   padding-top: 25px;
+  text-decoration: none;
 }
 .no-touch .cd-tabs-navigation a:hover {
   color: #29324e;
