@@ -60,8 +60,8 @@ $grey: #585858;
     display: none;
   }
   .cd-tabs nav {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 55px;
     left: 0;
     height: 100%;
     box-shadow: inset -2px 0 3px rgba(203, 196, 130, 0.06);
@@ -70,7 +70,7 @@ $grey: #585858;
 }
 
 .cd-tabs-navigation {
-  	width: 360px;
+  	//width: 360px;
 }
 .cd-tabs-navigation:after {
   content: "";
@@ -148,7 +148,7 @@ $grey: #585858;
   .cd-tabs-navigation a {
     height: 80px;
     width: 80px;
-    padding-top: 46px;
+    padding-top: 35px;
   }
   .cd-tabs-navigation a.selected {
     box-shadow: inset 2px 0 0 #f05451;
@@ -170,13 +170,6 @@ $grey: #585858;
   -webkit-animation: cd-fade-in 0.5s;
   -moz-animation: cd-fade-in 0.5s;
   animation: cd-fade-in 0.5s;
-}
-.cd-tabs-content li p {
-  font-size: 14px;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: #8493bf;
-  margin-bottom: 2em;
 }
 @media only screen and (min-width: 768px) {
   .cd-tabs-content {
@@ -213,8 +206,46 @@ $grey: #585858;
   }
 }
 
+form {
+	position: relative;
+	margin-top: 20px !important;
+}
 
-
+.textbox {
+	background: transparent;
+	border: none;
+	font-family: 'Lato';
+	font-weight: 300;
+	color: $main-color !important;
+	padding: 6px 2px;
+	border-bottom: solid 1px #d4d4d4;
+	width: 100%;
+	font-size: 17px;
+}
+textarea {
+	resize: none;
+	height: 90px;
+	width: 100%;
+	font-size: 17px;
+}
+.button {
+	border: solid 1px #d4d4d4;
+	border-radius: 2px;
+	padding:6px 16px;
+	color: #d4d4d4;
+	background:transparent;
+	cursor: pointer;
+	float: right;
+}
+.button:hover {
+	border: solid 1px #fff;
+	border-radius: 2px;
+	padding:6px 16px;
+	color: #fff;
+	background:transparent;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.08);
+}
 
 html {
 	background-color: #eaebec;
@@ -227,10 +258,12 @@ header {
 	height: 55px;
     position: fixed;
     top: 0;
+    z-index: 10;
 
 	> #logo {
 		display: inline-block;
 		height: inherit;
+		position: absolute;
 		//@include position(absolute, 0 null 0 0);
 
 		> img {
@@ -303,13 +336,13 @@ header {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 900px;
-    margin-top: 100px;
+    margin-top: 55px;
 	.accentuer {
 		font-style: italic;
 		font-weight: 500;
 	}
 
-	> .slogan {
+	.slogan {
 		text-align: center;
 		font-weight: 300;
 		font-size: 30px;
@@ -317,7 +350,7 @@ header {
 		margin-bottom: 40px;
 	}
 
-	> .white-box {
+	.white-box {
 		background-color: #fff;
 		padding: 20px;
 		margin-bottom: 20px;
@@ -368,11 +401,11 @@ header {
 		}
 
 		p {
-			font-size: 16px;
-			font-weight: 300;
-			display: inline-block;
-			line-height: 1.4;
-			text-indent: 30px;
+			font-size: 14px;
+			font-size: 0.875rem;
+			line-height: 1.6;
+			color: #a0a0a0;
+			margin-bottom: 2em;
 		}
 		
 		> iframe {

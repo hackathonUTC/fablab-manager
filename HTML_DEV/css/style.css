@@ -92,15 +92,12 @@ table {
     display: none; }
 
   .cd-tabs nav {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 55px;
     left: 0;
     height: 100%;
     box-shadow: inset -2px 0 3px rgba(203, 196, 130, 0.06);
     z-index: 1; } }
-.cd-tabs-navigation {
-  width: 360px; }
-
 .cd-tabs-navigation:after {
   content: "";
   display: table;
@@ -177,7 +174,7 @@ table {
   .cd-tabs-navigation a {
     height: 80px;
     width: 80px;
-    padding-top: 46px; }
+    padding-top: 35px; }
 
   .cd-tabs-navigation a.selected {
     box-shadow: inset 2px 0 0 #f05451; }
@@ -196,13 +193,6 @@ table {
   -webkit-animation: cd-fade-in 0.5s;
   -moz-animation: cd-fade-in 0.5s;
   animation: cd-fade-in 0.5s; }
-
-.cd-tabs-content li p {
-  font-size: 14px;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: #8493bf;
-  margin-bottom: 2em; }
 
 @media only screen and (min-width: 768px) {
   .cd-tabs-content {
@@ -225,6 +215,45 @@ table {
     opacity: 0; }
   100% {
     opacity: 1; } }
+form {
+  position: relative;
+  margin-top: 20px !important; }
+
+.textbox {
+  background: transparent;
+  border: none;
+  font-family: 'Lato';
+  font-weight: 300;
+  color: #ef9508 !important;
+  padding: 6px 2px;
+  border-bottom: solid 1px #d4d4d4;
+  width: 100%;
+  font-size: 17px; }
+
+textarea {
+  resize: none;
+  height: 90px;
+  width: 100%;
+  font-size: 17px; }
+
+.button {
+  border: solid 1px #d4d4d4;
+  border-radius: 2px;
+  padding: 6px 16px;
+  color: #d4d4d4;
+  background: transparent;
+  cursor: pointer;
+  float: right; }
+
+.button:hover {
+  border: solid 1px #fff;
+  border-radius: 2px;
+  padding: 6px 16px;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.08); }
+
 html {
   background-color: #eaebec;
   font-family: Lato; }
@@ -234,10 +263,12 @@ header {
   width: 100%;
   height: 55px;
   position: fixed;
-  top: 0; }
+  top: 0;
+  z-index: 10; }
   header > #logo {
     display: inline-block;
-    height: inherit; }
+    height: inherit;
+    position: absolute; }
     header > #logo > img {
       height: inherit;
       width: auto;
@@ -289,54 +320,54 @@ header {
   margin-left: auto;
   margin-right: auto;
   max-width: 900px;
-  margin-top: 100px; }
+  margin-top: 55px; }
   #main .accentuer {
     font-style: italic;
     font-weight: 500; }
-  #main > .slogan {
+  #main .slogan {
     text-align: center;
     font-weight: 300;
     font-size: 30px;
     color: #484848;
     margin-bottom: 40px; }
-  #main > .white-box {
+  #main .white-box {
     background-color: #fff;
     padding: 20px;
     margin-bottom: 20px;
     color: #636363; }
-    #main > .white-box h2 {
+    #main .white-box h2 {
       font-size: 22px;
       margin-bottom: 20px;
       color: #ef9508; }
-    #main > .white-box > .post {
+    #main .white-box > .post {
       border: 1px #eaebec solid;
       border-radius: 3px;
       padding: 10px; }
-    #main > .white-box .horaires {
+    #main .white-box .horaires {
       text-align: center;
       vertical-align: center;
       border-collapse: collapse; }
-      #main > .white-box .horaires th {
+      #main .white-box .horaires th {
         font-weight: 500; }
-      #main > .white-box .horaires th,
-      #main > .white-box .horaires tr,
-      #main > .white-box .horaires td {
+      #main .white-box .horaires th,
+      #main .white-box .horaires tr,
+      #main .white-box .horaires td {
         border: 1px solid #585858;
         text-align: center;
         width: 80px;
         height: 20px; }
-      #main > .white-box .horaires td {
+      #main .white-box .horaires td {
         height: 50px; }
-      #main > .white-box .horaires .noborder {
+      #main .white-box .horaires .noborder {
         border-top: none;
         border-left: none; }
-    #main > .white-box p {
-      font-size: 16px;
-      font-weight: 300;
-      display: inline-block;
-      line-height: 1.4;
-      text-indent: 30px; }
-    #main > .white-box > iframe {
+    #main .white-box p {
+      font-size: 14px;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: #a0a0a0;
+      margin-bottom: 2em; }
+    #main .white-box > iframe {
       display: inline-block; }
 
 /*# sourceMappingURL=style.css.map */

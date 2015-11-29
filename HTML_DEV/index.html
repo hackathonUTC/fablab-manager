@@ -38,7 +38,7 @@
 						<li><a data-content="1" class="selected" href="#0">Accueil</a></li>
 						<li><a data-content="2" href="#0">Machines</a></li>
 						<li><a data-content="3" href="#0">Fournitures</a></li>
-						<li><a data-content="3" href="#0">Contact</a></li>
+						<li><a data-content="4" href="#0">Contact</a></li>
 					</ul> <!-- cd-tabs-navigation -->
 				</nav>
 
@@ -240,7 +240,12 @@
 						<p>Fournitures</p>
 					</li>
 					<li data-content="4">
-						<p>Contact</p>
+						<form action="formulaire.php" method="post">
+							<input type="text" class="textbox" id="name" name="name" placeholder="Nom"/><br><br>
+							<input type="email" class="textbox" id="email" name="email"placeholder="Email"/><br><br>
+							<textarea class="textbox" name="message" id="message" placeholder="Message" size="100%" onKeyPress="return disableEnterKey(event)"></textarea><br>
+							<input id="submit" type="submit" class="button" value="Envoyer">
+						</form>
 					</li>
 				</ul> <!-- cd-tabs-content -->
 			</div> <!-- cd-tabs -->
