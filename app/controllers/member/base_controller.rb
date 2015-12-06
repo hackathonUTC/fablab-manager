@@ -1,13 +1,11 @@
 class Member::BaseController < ApplicationController
   before_action :authenticate_user!
   before_action :bouhou, except: [:show, :index]
-  before_action :tabs
+  before_action :load_tabs
+  layout "member"
 
-  def tabs
-	@tabs = [{ name: "Factures", content: %{
-		}},{ name: "Facture", content: %{
-		}},{ name: "Membres", content: %{
-		}}];
+  def load_tabs
+    @tabs = ['invoice', 'sellable_type', 'sellable']
   end
 
   def bouhou

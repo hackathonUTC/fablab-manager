@@ -1,0 +1,23 @@
+<a id="logo" href="<%= root_path %>"><%= image_tag("logo_fancy.png", alt:"Homepage") %></a>
+<div id="nav-container">
+  <nav id="cssmenu">
+    <ul>
+      <li><%= link_to 'Informations', root_path %></li>
+      <% if current_user %>
+          <li id="btn-login">
+            <%= link_to current_user.username, invoices_path %>
+          </li>
+          <li>
+            <%= link_to 'Deconnection', destroy_user_session_path, class: "btn-nav", method: :delete %>
+          </li>
+          <% if current_user.is_admin? %>
+              <li class="admin"><%= link_to 'Admin', rails_admin.dashboard_path %></li>
+          <% end %>
+      <% else %>
+          <li>
+            <%= link_to 'Connection', new_user_session_path, class: "btn-nav" %>
+          </li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

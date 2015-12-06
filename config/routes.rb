@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root 'home#show'
+  root 'home#acceuil'
+  get '/acceuil' => 'home#acceuil', as: :acceuil
+  get '/machines' => 'home#machines', as: :machines
+  get '/fournitures' => 'home#fournitures', as: :fournitures
+  get '/contact' => 'home#contact', as: :contact
+
 
   scope '/member', module: 'member' do
     resources :sellable_types

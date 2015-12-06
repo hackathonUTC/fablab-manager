@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FablabManager</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <%= render partial: 'layouts/header' %>
+</header>
+<div id="main" style="margin-top:55px;">
+
+  <br>
+  <hline></hline>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <div class="cd-tabs">
+    <nav>
+      <ul class="cd-tabs-navigation">
+        <% @tabs.each do |a| %>
+            <li>
+              <%= link_to a, send(a.downcase + "_path"), class: params[:action] == a.downcase ? "selected" : "" %>
+            </li>
+        <% end %>
+      </ul> <!-- cd-tabs-navigation -->
+    </nav>
+
+    <ul class="cd-tabs-content">
+      <li class="selected">
+
+        <%= yield %>
+
+      </li>
+
+    </ul>
+
+    <div>
+    </div>
+
+</body>
+</html>
