@@ -74,17 +74,97 @@
 
 					<li data-content="2">
 						<p>Machines</p>
+						<select name="sort-news" id="sort-news">
+							<option value="tout">Tout</option>
+							<option value="imprimantes">Imprimantes</option>
+							<option value="decoupeuse">Découpeuses</option>
+						</select> 
+						<hr />
+						<section class="news-list">
+						<article class="news-item" data-category="imprimantes">
+							<div class="thumb">
+								<img alt="Makerbot Replicator" src="img/produits/makerbot-replicator.jpg">
+							</div>
+							<div class="news-txt">
+								<h3>Makerbot Replicator</h3>
+								<p>Tarif : 1 gramme = 0,20€ *</p>
+								<a href="#" onclick="document.getElementById('makerbot-replicator').style.display = 'block'; this.style.display = 'none';">En savoir plus...</a>
+								<div id="makerbot-replicator">
+									<table>
+										<tbody>
+											<tr>
+												<td>Volume d'impression :</td>
+												<td>225 x 145 x 150 mm</td>
+											</tr>
+											<tr>
+												<td>Diamètre de buse :</td>
+												<td>0.4mm</td>
+											</tr>
+											<tr>
+												<td>Précision :</td>
+												<td>0.011 mm</td>
+											</tr>
+											<tr>
+												<td>Précision :</td>
+												<td>0.011 mm</td>
+											</tr>
+											<tr>
+												<td>PMatière :</td>
+												<td>PLA / ABS</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</article>
+						<article class="news-item" data-category="imprimantes">
+							<div class="thumb">
+								<img alt="Ultimaker2" src="img/produits/ultimaker2.jpg">
+							</div>
+							<div class="news-txt">
+								<h3>Ultimaker2</h3>
+								<p>Tarif : 1 gramme = 0,20€ *</p>
+								<a href="#" onclick="document.getElementById('ultimaker2').style.display = 'block'; this.style.display = 'none';">En savoir plus...</a>
+								<div id="ultimaker2">
+									<p>Blabla<br>
+									Blabla<br>
+									Blabla</p>
+								</div>
+							</div>
+						</article>
+						<article class="news-item" data-category="decoupeuse">
+							<div class="thumb">
+								<img alt="TrotecLaser" src="img/produits/troteclaser.jpg">
+							</div>
+							<div class="news-txt">
+								<h3>TrotecLaser</h3>
+								<p>Tarif : 1 minutes = 0,50€ + Prix Consommable *</p>
+								<a href="#" onclick="document.getElementById('troteclaser').style.display = 'block'; this.style.display = 'none';">En savoir plus...</a>
+								<div id="troteclaser">
+									<p>Blabla<br>
+									Blabla<br>
+									Blabla</p>
+								</div>
+							</div>
+						    </article>
+						</section>
 					</li>
-
 					<li data-content="3">
 						<p>Fournitures</p>
 					</li>
 					<li data-content="4">
+						<div class="slogan">Besoin d'aide ?</div>
+						<p>Envoyer nous un message :</p>
 						<form action="formulaire.php" method="post">
 							<input type="text" class="textbox" id="name" name="name" placeholder="Nom"/><br><br>
 							<input type="email" class="textbox" id="email" name="email"placeholder="Email"/><br><br>
 							<textarea class="textbox" name="message" id="message" placeholder="Message" size="100%" onKeyPress="return disableEnterKey(event)"></textarea><br>
 							<input id="submit" type="submit" class="button" value="Envoyer">
+							<div class="white-box">
+								<p>Mail : <span class="accentuer">exemple@gmail.com</span><br>
+								Tel : 03.44.55.66.77.88<br>
+								Reseaux Sociaux : </p>
+							</div>
 						</form>
 					</li>
 				</ul> <!-- cd-tabs-content -->
