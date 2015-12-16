@@ -39,7 +39,7 @@ class Member::SellablesController < Member::BaseController
           format.html { redirect_to @sellable, notice: 'Sellable was successfully created.' }
           format.json { render :show, status: :created, location: @sellable }
       else
-        format.html { render :new }
+        format.html { redirect_to new_sellable_path }
         format.json { render json: @sellable.errors, status: :unprocessable_entity }
       end
     end

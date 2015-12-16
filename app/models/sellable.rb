@@ -13,7 +13,7 @@
 #
 
 class Sellable < ActiveRecord::Base
-  has_many :prices, dependent: :destroy
+  has_many :prices, inverse_of: :sellable, dependent: :destroy
   accepts_nested_attributes_for :prices
 
   validates :prices, length: {minimum: 1}
