@@ -165,6 +165,11 @@
     padding: 2em 2em 2em 7em;
   }
 }
+@media only screen and (min-width: 1280px) {
+  .cd-tabs-content {
+    min-height: 980px;
+  }
+}
 
 
 @-webkit-keyframes cd-fade-in {
