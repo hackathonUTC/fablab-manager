@@ -17,6 +17,12 @@ class Member::SellablesController < Member::BaseController
   # GET /sellables/new
   def new
     @sellable = Sellable.new
+    types = PriceType.all
+
+    types.each do |t|
+      @sellable.prices.build(price_type_id: t.id)
+    end
+    @prices = @sellable.prices
   end
 
   # GET /sellables/1/edit

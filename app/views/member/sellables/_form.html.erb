@@ -28,16 +28,13 @@
       <%= f.number_field :stock, class: 'form-control' %>
     </div>
 
-    <%= f.fields_for :prices, validate: true do |price_form| %>
-
-        <div class="form-group rb_price">
-          <%= price_form.label :price %><br>
+    <%= f.fields_for :prices, @prices, validate: true do |price_form| %>
+        <div class="form-group">
+          <%= price_form.label price_form.object.price_type.name %><br>
           <%= price_form.number_field :value, class: 'form-control', step: 'any' %>
           <%= price_form.hidden_field :price_type_id, value: 0 %>
         </div>
     <% end %>
-
-    <p><%= f.link_to_add "", :prices, id: "rb_add_price" %></p>
 
     <div class="form-group">
       <%= f.label :sellable_type_id %><br>
