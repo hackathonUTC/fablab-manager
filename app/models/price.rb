@@ -11,7 +11,7 @@
 #
 
 class Price < ActiveRecord::Base
-  validates :value, presence: true
+  validates :value, presence: true, numericality: {greater_than_or_equal_to: 0}
 
   belongs_to :sellable, inverse_of: :prices
   validates :sellable, presence: true

@@ -12,11 +12,11 @@
 #
 
 class Order < ActiveRecord::Base
-  belongs_to :invoice
+  belongs_to :invoice, inverse_of: :orders
   belongs_to :sellable
 
-  validates :quantity, presence: true
-  validates :discount, presence: true
+  validates :quantity, presence: true, numericality: {greater_than_or_equal_to: 0, only_integer: true}
+  validates :discount, presence: true, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
   validates :invoice, presence: true
   validates :sellable, presence: true
 

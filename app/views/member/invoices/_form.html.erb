@@ -25,7 +25,7 @@
                 <%= order_form.label :sellable_id %>
                 <%= order_form.select :sellable_id, options_from_collection_for_select(@sellables, 'id', 'name'), {}, {class: 'form-control', disabled: !current_user.is_member?, selected: order_form.object.sellable_id} %>
                 <% if current_user.is_member? %>
-                    <%= order_form.link_to_remove "Remove this task" %>
+                    <%= order_form.link_to_remove "X", class: 'pull-right' %>
                 <% end %>
               </div>
             </div>
@@ -47,13 +47,12 @@
         <% end %>
       </div>
       <div class="col-md-2">
-        <div class="form-inline">
-          <%= form_tag(edit_invoice_path(@invoice)) do %>
-              <%= label_tag :price_type_id %>
-              <%= select_tag :price_type_id, options_from_collection_for_select(@price_types, 'id', 'name', @price_type.id), onchange: 'this.form.submit();', class: 'form-control' %>
-          <% end %>
-        </div><br>
-        Montant : <%= number_to_currency @invoice.price(@price_type) unless @invoice.orders.count == 0 %>
+          <% @price_types.each do |pt| %>
+            <p>
+              <%= pt.name %> :<br> <%= number_to_currency @invoice.price(pt) %>
+            </p>
+          <% end unless @invoice.orders.count == 0 %>
+
       </div>
     </div>
 

@@ -3,7 +3,6 @@ class Member::InvoicesController < Member::BaseController
   before_action :set_sellables, only: [:update, :edit, :create, :new]
   before_action :set_users, only: [:update, :edit, :create, :new]
   before_action :set_price_types
-  before_action :set_price_type, only: [:update, :edit, :create, :new]
 
   skip_before_action :bouhou, only: [:edit, :update]
 
@@ -53,18 +52,14 @@ class Member::InvoicesController < Member::BaseController
   # PATCH/PUT /invoices/1
   # PATCH/PUT /invoices/1.json
   def update
-    if params[:price_type_id].nil?
-      respond_to do |format|
-        if @invoice.update(invoice_params)
-          format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
-          format.json { render :show, status: :ok, location: @invoice }
-        else
-          format.html { render :edit }
-          format.json { render json: @invoice.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @invoice.update(invoice_params)
+        format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
+        format.json { render :show, status: :ok, location: @invoice }
+      else
+        format.html { render :edit }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
       end
-    else
-        redirect_to edit_invoice_path(@invoice, price_type_id: params[:price_type_id])
     end
   end
 
@@ -94,14 +89,6 @@ class Member::InvoicesController < Member::BaseController
 
   def set_price_types
     @price_types = current_user.is_member? ? PriceType.all : PriceType.where('display = ?', true)
-  end
-
-  def set_price_type
-    if !params[:price_type_id].nil?
-      @price_type = @price_types.find_by_id(params[:price_type_id])
-    else
-      @price_type = @price_types.last
-    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

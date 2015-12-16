@@ -12,7 +12,7 @@
 #
 
 class Invoice < ActiveRecord::Base
-  has_many :orders, dependent: :destroy
+  has_many :orders, inverse_of: :invoice, dependent: :destroy
   accepts_nested_attributes_for :orders, :allow_destroy => true
   validates :orders, length: {minimum: 1}
 

@@ -9,5 +9,7 @@
 #
 
 class SellableType < ActiveRecord::Base
+  validates :name, presence: true
+
   has_many :sellables
 end

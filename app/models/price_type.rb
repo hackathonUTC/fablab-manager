@@ -10,4 +10,5 @@
 #
 
 class PriceType < ActiveRecord::Base
+  validates :name, presence: true
 end

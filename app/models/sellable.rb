@@ -20,7 +20,7 @@ class Sellable < ActiveRecord::Base
   validates :sellable_type_id, presence: true
   validates :unit, presence: true
   validates :name, presence: true
-  validates :stock, numericality: {minimum: 0}
+  validates :stock, numericality: {greater_than_or_equal_to: 0, only_integer: true}
 
   belongs_to :sellable_type
 
