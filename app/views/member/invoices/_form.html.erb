@@ -14,19 +14,22 @@
     <div class="row">
       <div class="col-md-10">
         <%= f.fields_for :orders do |order_form| %>
-            <div class="form-inline">
-              <%= order_form.label :quantity %>
-              <%= order_form.text_field :quantity, class: 'form-control', disabled: !current_user.is_member? %>
+            <div class="panel panel-default">
+              <div class="form-inline">
+                <%= order_form.label :quantity %>
+                <%= order_form.text_field :quantity, class: 'form-control', disabled: !current_user.is_member? %>
 
-              <%= order_form.label :discount %>
-              <%= order_form.text_field :discount, class: 'form-control', disabled: !current_user.is_member? %>
+                <%= order_form.label :discount %>
+                <%= order_form.text_field :discount, class: 'form-control', disabled: !current_user.is_member? %>
 
-              <%= order_form.label :sellable_id %>
-              <%= order_form.select :sellable_id, options_from_collection_for_select(@sellables, 'id', 'name'), {}, {class: 'form-control', disabled: !current_user.is_member?} %>
-              <% if current_user.is_member? %>
-                  <%= order_form.link_to_remove "Remove this task" %>
-              <% end %>
+                <%= order_form.label :sellable_id %>
+                <%= order_form.select :sellable_id, options_from_collection_for_select(@sellables, 'id', 'name'), {}, {class: 'form-control', disabled: !current_user.is_member?, selected: order_form.object.sellable_id} %>
+                <% if current_user.is_member? %>
+                    <%= order_form.link_to_remove "Remove this task" %>
+                <% end %>
+              </div>
             </div>
+
         <% end %>
         <% if current_user.is_member? %>
             <p><%= f.link_to_add "Ajouter une #{Order.model_name.human}", :orders %></p>
@@ -50,7 +53,7 @@
               <%= select_tag :price_type_id, options_from_collection_for_select(@price_types, 'id', 'name', @price_type.id), onchange: 'this.form.submit();', class: 'form-control' %>
           <% end %>
         </div><br>
-        Montant : <%= @invoice.price(@price_type) unless @invoice.orders.count == 0 %> €
+        Montant : <%= number_to_currency @invoice.price(@price_type) unless @invoice.orders.count == 0 %>
       </div>
     </div>
 

@@ -20,7 +20,7 @@
         <td><%= invoice.id %></td>
         <td><%= invoice.client.email %></td>
         <% @price_types.each do |p| %>
-            <td><%= invoice.price(p) %></td>
+            <td><%= number_to_currency invoice.price(p) %></td>
         <% end %>
         <td><%= link_to 'Show', invoice %></td>
         <% if current_user.is_member? %>

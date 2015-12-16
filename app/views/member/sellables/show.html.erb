@@ -26,7 +26,7 @@
     <% if p.display %>
         <p>
           <strong><%= p.name %>:</strong>
-          <%= @sellable.price_value(p) %>
+          <%= number_to_currency @sellable.price_value(p) %>
         </p>
     <% end %>
 <% end %>

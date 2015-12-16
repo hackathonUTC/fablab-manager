@@ -28,7 +28,7 @@
         <td><%= sellable.stock %></td>
         <% @price_types.each do |p| %>
             <% if current_user.is_member? || p.display %>
-                <td><%= sellable.price_value(p) %> €</td>
+                <td><%= number_to_currency sellable.price_value(p) %></td>
             <% end %>
         <% end %>
         <td><%= sellable.sellable_type.name %></td>
