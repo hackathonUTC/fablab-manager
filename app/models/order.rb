@@ -15,7 +15,12 @@ class Order < ActiveRecord::Base
   belongs_to :invoice
   belongs_to :sellable
 
+  validates :quantity, presence: true
+  validates :discount, presence: true
+  validates :invoice, presence: true
+  validates :sellable, presence: true
+
   def price(priceType)
-    self.sellable.price_value(priceType) * self.quantity
+    self.sellable.price_value(priceType) * self.quantity * ((100-self.discount)/100)
   end
 end

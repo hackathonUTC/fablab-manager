@@ -16,7 +16,11 @@ class Sellable < ActiveRecord::Base
   has_many :prices, dependent: :destroy
   accepts_nested_attributes_for :prices
 
-  #validates :prices, length: {minimum: 1}
+  validates :prices, length: {minimum: 1}
+  validates :sellable_type_id, presence: true
+  validates :unit, presence: true
+  validates :name, presence: true
+  validates :stock, numericality: {minimum: 0}
 
   belongs_to :sellable_type
 

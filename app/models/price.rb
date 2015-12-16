@@ -12,6 +12,8 @@
 
 class Price < ActiveRecord::Base
   validates :price_type_id, presence: true
+  validates :value, presence: true
+  validates :sellable_id, presence: true
 
   belongs_to :sellable
   belongs_to :price_type
