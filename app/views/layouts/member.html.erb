@@ -10,27 +10,29 @@
 <header>
   <%= render partial: 'layouts/header' %>
 </header>
-<div id="main" style="margin-top:55px;">
-  <div class="cd-tabs">
-    <nav>
-      <ul class="cd-tabs-navigation">
-        <% @tabs.each do |a| %>
-            <li>
-              <%= link_to Object.const_get(a.camelize).model_name.human, send(a.downcase.pluralize + "_path"), class: params[:controller] == "member/" + a.downcase.pluralize ? "selected" : "" %>
-            </li>
-        <% end %>
-      </ul> <!-- cd-tabs-navigation -->
-    </nav>
 
-    <ul class="cd-tabs-content">
-      <li class="selected">
+<div class="row">
+  <div id="main" class="col-md-10 col-md-offset-1">
+    <div class="cd-tabs">
+      <nav>
+        <ul class="cd-tabs-navigation">
+          <% @tabs.each do |a| %>
+              <li>
+                <%= link_to Object.const_get(a.camelize).model_name.human, send(a.downcase.pluralize + "_path"), class: params[:controller] == "member/" + a.downcase.pluralize ? "selected" : "" %>
+              </li>
+          <% end %>
+        </ul> <!-- cd-tabs-navigation -->
+      </nav>
 
-        <%= yield %>
+      <ul class="cd-tabs-content">
+        <div class="row">
+          <div class="col-md-9 col-md-offset-2">
+            <%= yield %>
+          </div>
+        </div>
+      </ul>
 
-      </li>
-
-    </ul>
-
+    </div>
   </div>
 </div>
 

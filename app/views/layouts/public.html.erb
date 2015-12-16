@@ -10,29 +10,30 @@
 <header>
   <%= render partial: 'layouts/header' %>
 </header>
-<div id="main" style="margin-top:55px;">
-  <div class="cd-tabs">
-    <nav>
-      <ul class="cd-tabs-navigation">
-        <% @tabs.each do |a| %>
-            <li>
-              <%= link_to a, send(a.downcase + "_path"), class: params[:action] == a.downcase ? "selected" : "" %>
-            </li>
-        <% end %>
-      </ul> <!-- cd-tabs-navigation -->
-    </nav>
+<div class="row">
+  <div id="main" class="col-md-10 col-md-offset-1">
+    <div class="cd-tabs">
+      <nav>
+        <ul class="cd-tabs-navigation">
+          <% @tabs.each do |a| %>
+              <li>
+                <%= link_to a, send(a.downcase + "_path"), class: params[:action] == a.downcase ? "selected" : "" %>
+              </li>
+          <% end %>
+        </ul> <!-- cd-tabs-navigation -->
+      </nav>
 
-    <ul class="cd-tabs-content">
-      <li class="selected">
+      <ul class="cd-tabs-content">
+        <div class="row">
+          <div class="col-md-9 col-md-offset-2">
+            <%= yield %>
+          </div>
+        </div>
+      </ul>
 
-        <%= yield %>
-
-      </li>
-
-    </ul>
-
-    <div>
     </div>
+  </div>
+</div>
 
 </body>
 </html>
