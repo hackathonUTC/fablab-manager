@@ -1,4 +1,4 @@
-<%= nested_form_for @sellable, validate: true do |f| %>
+<%= nested_form_for @sellable do |f| %>
     <% if @sellable.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@sellable.errors.count, "error") %> prohibited this sellable from being saved:</h2>
@@ -28,7 +28,7 @@
       <%= f.number_field :stock, class: 'form-control' %>
     </div>
 
-    <%= f.fields_for :prices, @prices, validate: true do |price_form| %>
+    <%= f.fields_for :prices, @prices do |price_form| %>
         <div class="form-group">
           <%= price_form.label price_form.object.price_type.name %><br>
           <%= price_form.number_field :value, class: 'form-control', step: 'any' %>
@@ -38,7 +38,7 @@
 
     <div class="form-group">
       <%= f.label :sellable_type_id %><br>
-      <%= f.select :sellable_type_id, options_from_collection_for_select(@sellable_types, 'id', 'name'), class: 'form-control' %>
+      <%= f.select :sellable_type_id, options_from_collection_for_select(@sellable_types, 'id', 'name'), {}, class: 'form-control selectpicker' %>
     </div>
 
 
