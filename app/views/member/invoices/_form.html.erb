@@ -1,7 +1,8 @@
 <%= nested_form_for(@invoice) do |f| %>
     <% if @invoice.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+          <h2><%= t('errors.template.header',
+                    model: Invoice.model_name.human, count: @invoice.errors.count) %></h2>
 
           <ul>
             <% @invoice.errors.full_messages.each do |message| %>

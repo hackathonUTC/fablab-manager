@@ -1,7 +1,8 @@
 <%= nested_form_for @sellable do |f| %>
     <% if @sellable.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@sellable.errors.count, "error") %> prohibited this sellable from being saved:</h2>
+          <h2><%= t('errors.template.header',
+                    model: Sellable.model_name.human, count: @sellable.errors.count) %></h2>
 
           <ul>
             <% @sellable.errors.full_messages.each do |message| %>
