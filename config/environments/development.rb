@@ -41,4 +41,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+
+  # rails will fallback to config.i18n.default_locale translation
+  config.i18n.fallbacks = true
+
 end
