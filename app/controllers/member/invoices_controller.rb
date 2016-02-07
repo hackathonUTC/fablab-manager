@@ -54,9 +54,16 @@ class Member::InvoicesController < Member::BaseController
   def update
     respond_to do |format|
       if @invoice.update(invoice_params)
+        @errors = @invoice.errors
         format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @invoice }
       else
+        # Workaround for an issue that causes the @invoice state to be inconsistent after rollback
+        # https://github.com/rails/rails/issues/13744
+        # Refreshing object state
+        # Keep errors while refreshing
+        @errors = @invoice.errors
+        set_invoice
         format.html { render :edit }
         format.json { render json: @invoice.errors, status: :unprocessable_entity }
       end
