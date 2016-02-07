@@ -23,11 +23,12 @@ module FablabManager
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-
     # rails will fallback to config.i18n.default_locale translation
     config.i18n.fallbacks = true
 
     # rails will fallback to en, no matter what is set as config.i18n.default_locale
     config.i18n.fallbacks = [:en]
+
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
   end
 end
