@@ -1,42 +1,49 @@
-<%= Sellable.model_name.human %>
+<h1><%= Sellable.model_name.human %></h1>
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= Sellable.human_attribute_name :unit %>:</strong>
-  <%= @sellable.unit %>
-</p>
+<table class="table table-responsive">
 
-<p>
-  <strong><%= Sellable.human_attribute_name :name %>:</strong>
-  <%= @sellable.name %>
-</p>
+  <tbody>
+  <tr>
+    <td><strong><%= Sellable.human_attribute_name :unit %>:</strong></td>
+    <td><%= @sellable.unit %></td>
+  </tr>
 
-<p>
-  <strong><%= Sellable.human_attribute_name :description %>:</strong>
-  <%= @sellable.description %>
-</p>
+  <tr>
+    <td><strong><%= Sellable.human_attribute_name :name %>:</strong></td>
+    <td><%= @sellable.name %></td>
+  </tr>
 
-<p>
-  <strong><%= Sellable.human_attribute_name :stock %>:</strong>
-  <%= @sellable.stock %>
-</p>
+  <tr>
+    <td><strong><%= Sellable.human_attribute_name :description %>:</strong></td>
+    <td><%= @sellable.description %></td>
+  </tr>
 
-<% @price_types.each do |p| %>
-    <% if p.display %>
-        <p>
-          <strong><%= p.name %>:</strong>
-          <%= number_to_currency @sellable.price_value(p) %>
-        </p>
-    <% end %>
-<% end %>
+  <tr>
+    <td><strong><%= Sellable.human_attribute_name :stock %>:</strong></td>
+    <td><%= @sellable.stock %> <%= fa_icon "archive" %></td>
+  </tr>
 
-<% unless @sellable.sellable_type.nil? %>
-    <p>
-      <strong><%= SellableType.model_name.human %>:</strong>
-      <%= @sellable.sellable_type.name %>
-    </p>
-<% end %>
+  <% @price_types.each do |p| %>
+      <% if p.display %>
+          <tr>
+            <td><strong><%= p.name %>:</strong></td>
+            <td><%= number_to_currency @sellable.price_value(p) %></td>
+          </td>
+      <% end %>
+  <% end %>
+
+  <% unless @sellable.sellable_type.nil? %>
+      <tr>
+        <td><strong><%= SellableType.model_name.human %>:</strong></td>
+        <td><%= @sellable.sellable_type.name %></td>
+      </td>
+  <% end %>
+
+  <tr><td></td><td></td></tr>
+  </tbody>
+</table>
 
 <% if current_user.is_member? %>
     <%= link_to 'Editer', edit_sellable_path(@sellable) %> |

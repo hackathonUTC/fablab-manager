@@ -1,6 +1,6 @@
 
 
-@import '../../../HTML_DEV/css/bourbon/bourbon';
+@import './bourbon/bourbon';
 
 @import 'reset';
 
@@ -36,7 +36,7 @@ body {
 	border-radius: 3px;
     padding: 10px;
     margin: 3px;
-} 
+}
 @media (max-width: 520px) {
   	.news-item {
 		width: calc(100% - 1.4em) !important;
@@ -178,6 +178,9 @@ header {
 	}
 }
 
+#member-main {
+  margin-top: 55px;
+}
 
 #main {
     margin-top: 55px;

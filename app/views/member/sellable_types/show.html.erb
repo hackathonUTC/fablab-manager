@@ -2,10 +2,15 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= SellableType.human_attribute_name :name %>:</strong>
-  <%= @sellable_type.name %>
-</p>
+<table class="table table-responsive">
+  <tbody>
+  <tr>
+    <td><strong><%= SellableType.human_attribute_name :name %>:</strong></td>
+    <td><%= @sellable_type.name %></td>
+  </tr>
+  <tr><td></td><td></td></tr>
+  </tbody>
+</table>
 
 <% if current_user.is_member? %>
     <%= link_to 'Editer', edit_sellable_type_path(@sellable_type) %> |

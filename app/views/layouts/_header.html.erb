@@ -2,7 +2,7 @@
 <div id="nav-container">
   <nav id="cssmenu">
     <ul>
-      <li><%= link_to 'Informations', root_path %></li>
+      <li><%= link_to 'Espace membre', invoices_path %></li>
       <% if current_user %>
           <li id="btn-login">
             <%= link_to current_user.username, invoices_path %>
