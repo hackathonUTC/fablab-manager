@@ -21,11 +21,11 @@ class Order < ActiveRecord::Base
   validates :sellable, presence: true
 
   def price(priceType)
-    if self.discount
+    if self.discount && self.quantity
       self.sellable.price_value(priceType) * self.quantity * ((100-self.discount)/100)
     elsif self.quantity
       self.sellable.price_value(priceType) * self.quantity
-    elsif self.sellable.price_value(priceType)
+    else
       0
     end
   end
