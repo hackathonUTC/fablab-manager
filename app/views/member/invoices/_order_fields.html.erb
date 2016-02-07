@@ -1,0 +1,19 @@
+<tr class="fields">
+  <td>
+    <%= f.text_field :quantity, class: 'form-control', disabled: !current_user.is_member? %>
+  </td>
+
+  <td>
+    <%= f.text_field :discount, class: 'form-control', disabled: !current_user.is_member? %>
+  </td>
+
+  <td>
+    <%= f.select :sellable_id, options_from_collection_for_select(@sellables, 'id', 'name'), {}, {class: 'form-control', disabled: !current_user.is_member?, selected: f.object.sellable_id} %>
+  </td>
+
+  <td>
+    <% if current_user.is_member? %>
+        <%= f.link_to_remove "X", class: 'pull-right' %>
+    <% end %>
+  </td>
+</tr>

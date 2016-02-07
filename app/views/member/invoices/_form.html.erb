@@ -1,3 +1,9 @@
+<script>
+    window.nestedFormEvents.insertFields = function(content, assoc, link) {
+        return $('#orders').append(content);
+    }
+</script>
+
 <%= nested_form_for(@invoice) do |f| %>
     <% if @invoice.errors.any? %>
         <div id="error_explanation">
@@ -14,26 +20,19 @@
 
     <div class="row">
       <div class="col-md-10">
-        <%= f.fields_for :orders do |order_form| %>
-            <div class="panel panel-default">
-              <div class="form-inline">
-                <%= order_form.label :quantity %>
-                <%= order_form.text_field :quantity, class: 'form-control', disabled: !current_user.is_member? %>
-
-                <%= order_form.label :discount %>
-                <%= order_form.text_field :discount, class: 'form-control', disabled: !current_user.is_member? %>
-
-                <%= order_form.label :sellable_id %>
-                <%= order_form.select :sellable_id, options_from_collection_for_select(@sellables, 'id', 'name'), {}, {class: 'form-control', disabled: !current_user.is_member?, selected: order_form.object.sellable_id} %>
-                <% if current_user.is_member? %>
-                    <%= order_form.link_to_remove "X", class: 'pull-right' %>
-                <% end %>
-              </div>
-            </div>
-
-        <% end %>
+        <table id="orders" class="table table-responsive">
+          <thead>
+          <th><%= Order.human_attribute_name :quantity %></th>
+          <th><%= Order.human_attribute_name :discount %></th>
+          <th><%= Order.human_attribute_name :sellable_id %></th>
+          <th></th>
+          </thead>
+          <tbody>
+            <%= f.fields_for :orders, wrapper: false %>
+          </tbody>
+        </table>
         <% if current_user.is_member? %>
-            <p><%= f.link_to_add "Ajouter une #{Order.model_name.human}", :orders %></p>
+            <p><%= f.link_to_add "Ajouter une #{Order.model_name.human}", :orders, 'data-target': '#orders' %></p>
         <% end %>
 
         <div class="form-group">
@@ -48,11 +47,11 @@
         <% end %>
       </div>
       <div class="col-md-2">
-          <% @price_types.each do |pt| %>
+        <% @price_types.each do |pt| %>
             <p>
               <%= pt.name %> :<br> <%= number_to_currency @invoice.price(pt) %>
             </p>
-          <% end unless @invoice.orders.count == 0 %>
+        <% end unless @invoice.orders.count == 0 %>
 
       </div>
     </div>
