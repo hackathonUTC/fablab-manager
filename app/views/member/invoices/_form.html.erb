@@ -5,13 +5,13 @@
 </script>
 
 <%= nested_form_for(@invoice) do |f| %>
-    <% if @errors.any? %>
+    <% if @invoice.errors.any? %>
         <div id="error_explanation">
           <h2><%= t('errors.template.header',
                     model: Invoice.model_name.human, count: @invoice.errors.count) %></h2>
 
           <ul>
-            <% @errors.full_messages.each do |message| %>
+            <% @invoice.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
             <% end %>
           </ul>
